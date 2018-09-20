@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::Base
 
+    
     private
 
     def current_user
-      if session[:user_id]
-        @current_user ||= User.find_by_id(session[:user_id])
-      end
+        if session[:user_id]
+          @current_user ||= User.find_by(id: session[:user_id])
+        end
     end
   
     # Returns true if current_user exists, false otherwise
@@ -23,6 +24,6 @@ class ApplicationController < ActionController::Base
       session[:user_id] = nil
     end
 
-    helper_method :logged_in?
+    helper_method :logged_in?, :current_user
 
 end

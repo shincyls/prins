@@ -1,7 +1,7 @@
 <header class="header-global">
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
-        <%= link_to image_tag('brand/white.png'), root_path, class: "navbar-brand mr-lg-5" %>
+        <%= link_to image_tag('brand/logo.png'), root_path, class: "navbar-brand mr-lg-5" %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,16 +21,33 @@
               </div>
             </div>
           </div>
+          <% if notice != nil %>
+            <div class="alert alert-success" role="alert">
+              <button class="close" data-dismiss="alert">×</button>
+              <%= notice %> 
+            </div>
+          <% end %>
+          <% if alert != nil  %>
+            <div class="alert alert-danger" role="alert">
+              <button class="close" data-dismiss="alert">×</button>
+              <%= alert %> 
+            </div>
+          <% end %>
           <ul class="navbar-nav ml-lg-auto">
             <li class="nav-item">
               <a class="nav-link" href="#">Discover</a>
             </li>
-            <li class="nav-item">
-              <%= link_to 'Profile', user_path(1), class: "nav-link" %>
-            </li>
             <% if logged_in? %>
             <li class="nav-item">
-              <%= link_to 'Logout', session_path('bogus-id'), method: :delete, class: "nav-link" %>
+              <%= link_to 'Profile', user_path(current_user.id), class: "nav-link" %>
+            </li>
+            <% if current_user.admin? %>
+            <li class="nav-item">
+              <%= link_to 'Admin', rails_admin_path, class: "nav-link" %>
+            </li>
+            <% end %>
+            <li class="nav-item">
+              <%= link_to 'Logout', session_path('logout'), method: :delete, class: "nav-link" %>
             </li>
             <% else %>
             <li class="nav-item">
@@ -50,4 +67,4 @@
         </div>
       </div>
   </nav>
-  </header>
+</header>

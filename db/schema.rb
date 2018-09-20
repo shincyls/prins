@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_19_081243) do
+ActiveRecord::Schema.define(version: 2018_09_20_060752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dresses", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.bigint "category_id"
+    t.string "remark"
+    t.string "color"
+    t.float "price"
+    t.integer "stock"
+    t.float "cm_length"
+    t.float "cm_bust"
+    t.float "cm_waist"
+    t.float "cm_hip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "images"
+    t.index ["category_id"], name: "index_dresses_on_category_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -22,9 +47,11 @@ ActiveRecord::Schema.define(version: 2018_09_19_081243) do
     t.string "email"
     t.date "birthday"
     t.string "password_digest"
+    t.string "remember_digest"
     t.integer "role", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
   end
 
 end
