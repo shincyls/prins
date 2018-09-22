@@ -12,7 +12,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
                   </div>
-                  <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search" %>
+                  <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search, eg: color, type, code" %>
                   <%= submit_tag "Search", name: nil, class: "btn btn-sm btn-primary mr-4" %>
                 </div>
               <% end %>
@@ -29,8 +29,17 @@
             <div class="row row-grid" id="search">
               <%= render partial: 'show' %>
             </div>
+            <% if @dresses == [] %>
+              <h2>No Result is Found</h2>
+            <% end %>
           </div>
         </div>
       </div>
+
+      <div class="row justify-content-center" id="load-more">
+        <%= link_to 'Click To Load More', dresses_path(:page => @dresses.next_page), class: "btn btn-outline-primary btn-lg", :remote => true %>
+      </div>
+
     </section>
+
   </main>
