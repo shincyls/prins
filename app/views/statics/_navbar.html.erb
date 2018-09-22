@@ -10,7 +10,7 @@
             <div class="row">
               <div class="col-6 collapse-brand">
                 <a href="./index.html">
-                <%= image_tag "brand/blue.png" %>
+                  <%= image_tag "brand/logo.png" %>
                 </a>
               </div>
               <div class="col-6 collapse-close">
@@ -21,21 +21,9 @@
               </div>
             </div>
           </div>
-          <% if notice != nil %>
-            <div class="alert alert-success" role="alert">
-              <button class="close" data-dismiss="alert">×</button>
-              <%= notice %> 
-            </div>
-          <% end %>
-          <% if alert != nil  %>
-            <div class="alert alert-danger" role="alert">
-              <button class="close" data-dismiss="alert">×</button>
-              <%= alert %> 
-            </div>
-          <% end %>
           <ul class="navbar-nav ml-lg-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Discover</a>
+              <%= link_to 'Gallery', dresses_path, class: "nav-link" %>
             </li>
             <% if logged_in? %>
             <li class="nav-item">

@@ -1,56 +1,54 @@
 class UsersController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except:[:index, :show, :new, :create]
+  
+  # When registering for new user
   def new
     @user = User.new
   end
 
   # GET /users
-  # GET /users.json
   def index
-    @users = User.all
+    @users = current_users
+    @dresses = Dress.all
   end
 
-  # GET /users/1
-  # GET /users/1.json
+  # GET /users/:id
   def show
   end
 
-  # GET /users/1/edit
+  # GET /users/:id/edit
   def edit
   end
 
   # POST /users
-  # POST /users.json
   def create
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user, notice: 'User was successfully created.'
+      redirect_to @user, flash: { success: 'User was successfully created.' }
     else
-      redirect_to root_url, alert: 'Failed to create user.'
+      redirect_to root_url, flash: { danger: 'Failed to create user.' }
     end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
+  # PATCH/PUT /users/:id
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        redirect_to @user, notice: 'User was successfully updated.'
-      else
-        render :edit
-      end
+    respond_to :html, :js
+    if @user.update(user_params)
+      redirect_to @user, flash: { success: 'User was successfully updated.' }
+    else
+      redirect_to root_url, flash: { danger: 'Failed to Edit user.' }
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
+  # DELETE /users/:id
   def destroy
     session[:user_id] = nil
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, flash: { danger: 'User was successfully destroyed.' } }
     end
   end
 
@@ -60,9 +58,16 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    # before_action, only owner can :edit :update :destroy their profile
+    def authenticate_user!
+      if current_user.id != @user.id
+        redirect_back(fallback_location: root_path)
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :first_name, :last_name, :email, :birthday, :password)
+      params.require(:user).permit(:username, :first_name, :last_name, :email, :birthday, :password, :avatar)
     end
     
 end

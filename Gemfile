@@ -26,34 +26,26 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
 gem 'oauth2', '~> 1.4'
 
 # Use ActiveStorage variant
+gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 # gem 'mini_magick', '~> 4.8'
 
-#Styling
-
+# Styling Libraries
 gem 'bootstrap', '~> 4.1', '>= 4.1.3'
-
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
-
 gem 'jquery-turbolinks', '~> 2.1'
-
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
-
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
-
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 
-#Features
-
-gem 'carrierwave', '~> 1.2', '>= 1.2.3'
-
+# Important features search and admin
+gem 'pg_search', '~> 2.1', '>= 2.1.2'
 gem 'rails_admin', '~> 1.4', '>= 1.4.1'
 
+# Payment and Security
 gem 'figaro', '~> 1.1', '>= 1.1.1'
-
 gem 'braintree', '~> 2.90'
 
 # Use Capistrano for deployment

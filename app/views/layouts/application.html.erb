@@ -13,10 +13,11 @@
   </head>
 
   <body>
+    <%= render partial: 'statics/message' %>
     <%= render partial: 'statics/navbar' %>
     <%= yield %>
+    <%= render partial: 'statics/modal' %>
+    <%= render partial: 'statics/footer' %>
   </body>
-
-  <%= render partial: 'statics/footer' %>
 
 </html>
