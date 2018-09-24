@@ -22,7 +22,7 @@ class User < ApplicationRecord
     end
 
     def fullname
-       first_name + " " + last_name
+       self.first_name + " " + self.last_name
     end
 
     def hello

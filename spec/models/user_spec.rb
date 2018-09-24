@@ -53,9 +53,11 @@ RSpec.describe User, type: :model do
   end
 
   context 'Custom Model Method Test' do
-    it "full name is the concatenate of first_name and last_name" do
-      user1 = User.new(username: 'shin1', first_name: 'abc', last_name: 'def', password: "qwerasdf", email: 'shin1@example.com').save
-      expect(user1.fullname).to eq('abc def')
+    describe "fullname" do
+      it "should return fullname" do
+        @shin = User.new(username: 'Customer', first_name: 'This', last_name: 'Name', password: "qwerasdf", email: 'customer@example.com')
+        expect(@shin.fullname).to eq("This Name")
+      end
     end
   end
 
