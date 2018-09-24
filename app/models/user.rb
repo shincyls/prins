@@ -21,9 +21,12 @@ class User < ApplicationRecord
         total = self.dresses.count
     end
 
-    def full_name
-        @name = first_name + " " + last_name
-        return @name
+    def fullname
+       first_name + " " + last_name
+    end
+
+    def hello
+        "Hello"
     end
 
 end

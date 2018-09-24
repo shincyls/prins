@@ -12,10 +12,10 @@ RSpec.feature "Users", type: :feature do
      	scenario "should be successful" do
 	      	visit root_path
 			  within(".new_user") do
-				fill_in 'user[username]', with: 'shincayz'
+				fill_in 'user[username]', with: (0...8).map { ('a'..'z').to_a[rand(26)] }.join.to_s
 		        fill_in 'user[first_name]', with: 'Shin'
 		        fill_in 'user[last_name]', with: 'Cy'
-				fill_in 'user[email]', with: 'helxxx@email.com'
+				fill_in 'user[email]', with: (0...8).map { ('a'..'z').to_a[rand(26)] }.join.to_s + '@email.com'
 				fill_in 'user[birthday]', with: '09/04/2018'
 		        fill_in 'user[password]', with: 'password'
       		  end

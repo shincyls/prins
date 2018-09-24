@@ -52,12 +52,12 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # context 'Custom Model Method Test' do
-  #   it "full name is the concatenate of first_name and last_name" do
-  #     a = User.new(username: 'shinobi', first_name: 'Cy', last_name: 'Shin', password: "qwerasdf", email: 'shinobi@example.com').save
-  #     fullname = a.first_name + a.last_name
-  #     expect(fullname).to eq('Cy Shin')
-  #   end
-  # end
+  context 'Custom Model Method Test' do
+    it "full name is the concatenate of first_name and last_name" do
+      user1 = User.new(username: 'shin1', first_name: 'abc', last_name: 'def', password: "qwerasdf", email: 'shin1@example.com').save
+      expect(user1.fullname).to eq('abc def')
+    end
+  end
+
 
 end
