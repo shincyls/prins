@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except:[:index, :show, :new, :create]
-  
+
   # When registering for new user
   def new
     @user = User.new
@@ -29,7 +29,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user, flash: { success: 'User was successfully created.' }
     else
-      redirect_to root_url, flash: { danger: 'Failed to create user.' }
+      #respond_to :html, :js
+      redirect_to root_url, flash: { danger: @user.errors.full_messages[0] }
     end
   end
 

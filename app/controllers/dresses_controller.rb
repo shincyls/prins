@@ -22,9 +22,9 @@ class DressesController < ApplicationController
     @dresses = @dresses.paginate(:page => params[:page], :per_page => 8)
   end
 
-  def new
-  end
-
-  
+  # def like
+  #   @dress = Dress.find(params[:id])
+  #   user_dress_like(user_id: current_user.id, dress_id: params[:id], like: true)
+  # end
   
 end

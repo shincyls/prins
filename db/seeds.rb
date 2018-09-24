@@ -39,4 +39,19 @@ Dress.create!([
     {name: "Purple Deep V Dinner Dress", code: "FS0006", category_id: 3, color: "Purple", price: 288, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/12/dress4.jpg")},
     {name: "Blue Princess Dress", code: "FS0007", category_id: 3, color: "Blue", price: 288, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/13/dress5.jpg")}
 ])
+
+UserDressLike.create!([
+    {user_id: 1, dress_id: 1, like: true},
+    {user_id: 1, dress_id: 2, like: true},
+    {user_id: 1, dress_id: 3, like: true},
+    {user_id: 1, dress_id: 4, like: true},
+    {user_id: 1, dress_id: 5, like: true},
+    {user_id: 1, dress_id: 6, like: true},
+    {user_id: 2, dress_id: 2, like: true},
+    {user_id: 2, dress_id: 4, like: true},
+    {user_id: 2, dress_id: 6, like: true},
+    {user_id: 2, dress_id: 8, like: true},
+    {user_id: 2, dress_id: 10, like: true},
+    {user_id: 2, dress_id: 12, like: true}
+])
   

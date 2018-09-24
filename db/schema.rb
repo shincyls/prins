@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_21_060515) do
+ActiveRecord::Schema.define(version: 2018_09_23_200422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 2018_09_21_060515) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
+  create_table "user_dress_likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "dress_id"
+    t.boolean "like", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dress_id"], name: "index_user_dress_likes_on_dress_id"
+    t.index ["user_id"], name: "index_user_dress_likes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
