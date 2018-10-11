@@ -8,8 +8,12 @@
                  <div class="alert alert-<%= bootstrap_class_for(type) %> alert-dismissible fade show text-center" role="alert">
             <% end %>
                 <span class="alert-inner--text"><b>
-                    <% message.each do |m| %>
-                      <li><%= m %></li>
+                    <% if message.kind_of?(Array) %>
+                        <% message.each do |m| %>
+                        <li><%= m %></li>
+                        <% end %>
+                    <% else %>
+                        <%= message %>
                     <% end %>
                 </b></span>
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">

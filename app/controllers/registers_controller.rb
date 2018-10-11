@@ -85,7 +85,7 @@ class RegistersController < ApplicationController
   def destroy
     @register.destroy
     respond_to do |format|
-      format.html { redirect_to registers_url, notice: 'Register was successfully destroyed.' }
+      format.html { redirect_to registers_url, notice: 'Register was successfully removed.' }
       format.json { head :no_content }
     end
   end
