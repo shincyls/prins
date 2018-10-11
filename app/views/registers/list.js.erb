@@ -1,7 +1,7 @@
 $('#search').html("<%= j (render 'list') %>");
 $('.pagination a').attr('data-remote', 'true');
 <% if @registers.next_page %>
-    $('#load-more').html('<%= link_to 'Click To Load More', registers_path(:page => @registers.next_page), class: "btn btn-outline-bantu btn-xl", remote: true %>');
+    $('#load-more').html('<%= link_to 'Click To Load More', registers_path(:page => @registers.next_page), class: "btn btn-outline-bantu btn-xl mt-3 mb-3", remote: true %>');
 <% else %>
-    $('#load-more').html('<div class="alert alert-primary alert-dismissible fade show text-center mt-5" role="alert">No More Records, This Is The Bottom of Search!</div>');
+    $('#load-more').html('<div class="alert alert-secondary alert-dismissible fade show text-center mt-3 mb-3" role="alert">No more records, this is the bottom of search.</div>');
 <% end %>
