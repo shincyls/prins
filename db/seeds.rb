@@ -7,7 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
+User.create!([
+    {username: "admin1", first_name: "Hello", last_name: "Hello", email: "admin1@smartbin.com", password: "qwerasdf", role: 0},
+    {username: "admin2", first_name: "Hello", last_name: "Hello", email: "admin2@smartbin.com", password: "qwerasdf", role: 0},
+    {username: "admin3", first_name: "Hello", last_name: "World", email: "admin3@smartbin.com", password: "qwerasdf", role: 0},
+    {username: "admin4", first_name: "Hello", last_name: "World", email: "admin4@smartbin.com", password: "qwerasdf", role: 0},
+    {username: "admin5", first_name: "Hello", last_name: "World", email: "admin5@smartbin.com", password: "qwerasdf", role: 0}
+])
 
 
 Register.create!([

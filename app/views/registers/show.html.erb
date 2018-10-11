@@ -2,7 +2,7 @@
     <div class="position-relative mt-4 mb-4">
       <div class="container p-4 shadow rounded">
         <div class="row justify-content-center">
-          <div class="col-lg-12" id="print-section" style="width:250px;height:204px;background-color:white;">
+          <div class="col-lg-12" id="print-section">
                 <div class="row mt-2">
                     <div class="col-md-2"><h6>First Name</h6></div>
                     <div class="col-md-4"><%=@register.first_name%></div>
@@ -46,7 +46,7 @@
 </div>
 
 <div class="row justify-content-center">
-    <%= link_to "Click to Print", "", class: "btn btn-primary m-2", id: "printBtn", onclick: "printcontent('print')" %>
+    <%= link_to "Click to Print", "", class: "btn btn-primary m-2", id: "printBtn", onclick: "printDiv('print')" %>
 </div>
 
 
