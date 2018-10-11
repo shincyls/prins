@@ -10,48 +10,28 @@
 
 
 
-User.create!([
-    {username: "admin", first_name: "Hello", last_name: "World", email: "admin@smartbin.com", password: "qwerasdf", role: 0},
-    {username: "welene", first_name: "Welene", last_name: "Lim", email: "company@smartbin.com", password: "qwerasdf", role: 0},
-    {username: "user1", first_name: "Hello", last_name: "World", email: "user1@smartbin.com", password: "qwerasdf", role: 1},
-    {username: "user2", first_name: "Hello", last_name: "World", email: "user2@smartbin.com", password: "qwerasdf", role: 1},
-    {username: "user3", first_name: "Hello", last_name: "World", email: "user3@smartbin.com", password: "qwerasdf", role: 1}
+Register.create!([
+    {first_name: "Alvin", last_name: "Wood", email: "account1@testing.com"},
+    {first_name: "Bernand", last_name: "South", email: "account2@testing.com"},
+    {first_name: "Cathryn", last_name: "Bridge", email: "account3@testing.com"},
+    {first_name: "Dan", last_name: "Bazillian", email: "account4@testing.com"},
+    {first_name: "Edward", last_name: "Rossane", email: "account5@testing.com"},
+    {first_name: "Frankurt", last_name: "Kind", email: "account6@testing.com"},
+    {first_name: "George", last_name: "Norman", email: "account7@testing.com"},
+    {first_name: "Halle", last_name: "Berry", email: "account8@testing.com"},
+    {first_name: "Isabelle", last_name: "Atkinson", email: "account9@testing.com"},
+    {first_name: "Jayson", last_name: "Maroon", email: "account10@testing.com"},
+    {first_name: "Kathy", last_name: "Sampson", email: "account11@testing.com"},
+    {first_name: "Lechman", last_name: "Park", email: "account12@testing.com"},
+    {first_name: "Merry", last_name: "Joseph", email: "account13@testing.com"},
+    {first_name: "Norman", last_name: "Robinson", email: "account14@testing.com"},
+    {first_name: "Oscar", last_name: "Haryy", email: "account15@testing.com"},
+    {first_name: "Potter", last_name: "World", email: "account16@testing.com"},
+    {first_name: "Queensy", last_name: "World", email: "account17@testing.com"},
+    {first_name: "Richman", last_name: "World", email: "account18@testing.com"},
+    {first_name: "Steven", last_name: "Brady", email: "account19@testing.com"},
+    {first_name: "Tamers", last_name: "Hardy", email: "account20@testing.com"},
+    {first_name: "Uruski", last_name: "Pedolsa", email: "account21@testing.com"},
+    {first_name: "Viera", last_name: "Delarosa", email: "account22@testing.com"}
   ])
-
-Category.create!([
-    {name: "Gown", description: "None"},
-    {name: "Kua", description: "None"},
-    {name: "Dress", description: "None"}
-])
-
-Dress.create!([
-    {name: "White Gown Big", code: "FG0001", category_id: 1, color: "White", price: 188, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/1/gown1.jpg")},
-    {name: "White Gown Slim", code: "FG0002", category_id: 1, color: "White", price: 288, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/2/gown2.jpg")},
-    {name: "Prosperity Kua", code: "FK0001", category_id: 2, color: "Red", price: 188, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/3/kua1.jpg")},
-    {name: "Eternity Kua", code: "FK0002", category_id: 2, color: "Red", price: 288, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/4/kua2.jpg")},
-    {name: "Blue Dinner Dress", code: "FD0001", category_id: 3, color: "Blue", price: 188, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/5/dress1.jpg")},
-    {name: "Black Dinner Dress", code: "FD0002", category_id: 3, color: "Black", price: 288, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/6/dress2.jpg")},
-    {name: "White Lace Gown", code: "FS0001", category_id: 1, color: "White", price: 188, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/7/gown3.jpg")},
-    {name: "White Lace Mermaid Gown", code: "FS0002", category_id: 1, color: "White", price: 288, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/8/gown4.jpg")},
-    {name: "Happiness Kua", code: "FS0003", category_id: 2, color: "Red", price: 188, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/9/kua3.jpg")},
-    {name: "Forever Kua", code: "FS0004", category_id: 2, color: "Red", price: 288, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/10/kua4.jpg")},
-    {name: "Green Top Transparent Dinner Dress", code: "FS0005", category_id: 3, color: "Green", price: 188, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/11/dress3.jpg")},
-    {name: "Purple Deep V Dinner Dress", code: "FS0006", category_id: 3, color: "Purple", price: 288, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/12/dress4.jpg")},
-    {name: "Blue Princess Dress", code: "FS0007", category_id: 3, color: "Blue", price: 288, cm_length: 100, cm_bust: 100, cm_waist: 100, cm_hip: 100, images: File.open(Rails.root + "public/uploads/dress/images/13/dress5.jpg")}
-])
-
-UserDressLike.create!([
-    {user_id: 1, dress_id: 1, like: true},
-    {user_id: 1, dress_id: 2, like: true},
-    {user_id: 1, dress_id: 3, like: true},
-    {user_id: 1, dress_id: 4, like: true},
-    {user_id: 1, dress_id: 5, like: true},
-    {user_id: 1, dress_id: 6, like: true},
-    {user_id: 2, dress_id: 2, like: true},
-    {user_id: 2, dress_id: 4, like: true},
-    {user_id: 2, dress_id: 6, like: true},
-    {user_id: 2, dress_id: 8, like: true},
-    {user_id: 2, dress_id: 10, like: true},
-    {user_id: 2, dress_id: 12, like: true}
-])
   
