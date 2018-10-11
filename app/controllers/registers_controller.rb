@@ -4,7 +4,18 @@ class RegistersController < ApplicationController
   def index
     respond_to :html, :js
     @registers = Register.all.order("created_at desc")
-    @registers = @registers.paginate(:page => params[:page], :per_page => 20)
+    @registers = @registers.paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def list
+    respond_to :html, :js
+    @registers = Array.new
+    if params[:query].empty? || params[:query] == "all"
+      @registers = Register.all.order("created_at desc")
+    else
+      @registers = Register.search_registers(params[:query])
+    end
+    @registers = @registers.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
@@ -33,17 +44,6 @@ class RegistersController < ApplicationController
   def printe
     respond_to :html, :js
     @register = Register.find(params[:id])
-  end
-
-  def list
-    respond_to :html, :js
-    @registers = Array.new
-    if params[:query].empty? || params[:query] == "all"
-      @registers = Register.all.order("created_at desc")
-    else
-      @registers = Register.search_registers(params[:query])
-    end
-    @registers = @registers.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /registers/new

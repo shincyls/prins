@@ -3,5 +3,5 @@ $('.pagination a').attr('data-remote', 'true');
 <% if @registers.next_page %>
     $('#load-more').html('<%= link_to 'Click To Load More', registers_path(:page => @registers.next_page), class: "btn btn-outline-bantu btn-xl mt-3 mb-3", remote: true %>');
 <% else %>
-    $('#load-more').html('<div class="alert alert-secondary alert-dismissible fade show text-center mt-3 mb-3" role="alert">No more records, this is the bottom of search.</div>');
+    $('#load-more').html('<p>No more records, this is the bottom of search.</p>');
 <% end %>

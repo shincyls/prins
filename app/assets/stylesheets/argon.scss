@@ -6201,7 +6201,7 @@ input[type='button'].btn-block
 .badge-primary
 {
     color: #2643e9;
-    background-color: rgba(203, 210, 246, .5);
+    background-color: rgb(203, 210, 246);
 }
 .badge-primary[href]:hover,
 .badge-primary[href]:focus
@@ -6215,7 +6215,7 @@ input[type='button'].btn-block
 .badge-secondary
 {
     color: #d3d9e5;
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgb(255, 255, 255);
 }
 .badge-secondary[href]:hover,
 .badge-secondary[href]:focus
@@ -6229,7 +6229,7 @@ input[type='button'].btn-block
 .badge-success
 {
     color: #1aae6f;
-    background-color: rgba(147, 231, 195, .8);
+    background-color: #2dce89;
 }
 .badge-success[href]:hover,
 .badge-success[href]:focus
@@ -6243,7 +6243,7 @@ input[type='button'].btn-block
 .badge-info
 {
     color: #03acca;
-    background-color: rgba(136, 230, 247, .8);
+    background-color: #11cdef;
 }
 .badge-info[href]:hover,
 .badge-info[href]:focus
@@ -6257,7 +6257,7 @@ input[type='button'].btn-block
 .badge-warning
 {
     color: #ff3709;
-    background-color: rgba(254, 201, 189, .8);
+    background-color: #fb6340;
 }
 .badge-warning[href]:hover,
 .badge-warning[href]:focus
@@ -6271,7 +6271,7 @@ input[type='button'].btn-block
 .badge-danger
 {
     color: #f80031;
-    background-color: rgba(251, 175, 190, .8);
+    background-color: #f5365c;
 }
 .badge-danger[href]:hover,
 .badge-danger[href]:focus
