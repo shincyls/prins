@@ -1,58 +1,42 @@
-<header class="header-global">
-    <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
-      <div class="container">
-        <%= link_to image_tag('brand/logo.png'), root_path, class: "navbar-brand mr-lg-5" %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar-primary">
-          <div class="navbar-collapse-header">
-            <div class="row">
-              <div class="col-6 collapse-brand">
-                <a href="./index.html">
-                  <%= image_tag "brand/logo.png" %>
-                </a>
-              </div>
-              <div class="col-6 collapse-close">
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                </button>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow">
+        <div class="container">
+          <a class="navbar-brand" href="#">Prins Solution</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-primary">
+            <div class="navbar-collapse-header">
+              <div class="row">
+                <div class="col-6 collapse-brand">
+                  <a href="./index.html">
+                    <img src="./assets/img/brand/blue.png">
+                  </a>
+                </div>
+                <div class="col-6 collapse-close">
+                  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                  </button>
+                </div>
               </div>
             </div>
+            <ul class="navbar-nav ml-lg-auto">
+              <li class="nav-item">
+                <%= link_to "View", registers_path, class: "nav-link"%>
+              </li>
+              <li class="nav-item">
+                <%= link_to "New", new_register_path, class: "nav-link"%>
+              </li>
+              <!-- li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="navbar-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-primary_dropdown_1">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div -->
+              </li>
+            </ul>
           </div>
-          <ul class="navbar-nav ml-lg-auto">
-            <li class="nav-item">
-              <%= link_to 'Gallery', dresses_path, class: "nav-link" %>
-            </li>
-            <% if logged_in? %>
-            <li class="nav-item">
-              <%= link_to 'Profile', user_path(current_user.id), class: "nav-link" %>
-            </li>
-            <% if current_user.admin? %>
-            <li class="nav-item">
-              <%= link_to 'Admin', rails_admin_path, class: "nav-link" %>
-            </li>
-            <% end %>
-            <li class="nav-item">
-              <%= link_to 'Logout', session_path('logout'), method: :delete, class: "nav-link" %>
-            </li>
-            <% else %>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="modal" data-target="#modal-form">Login</a>
-            </li>     
-            <% end %>
-            <!-- <li class="nav-item dropdown">
-              <a class="nav-link" href="#" id="navbar-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-primary_dropdown_1">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div> -->
-            </li>
-          </ul>
         </div>
-      </div>
-  </nav>
-</header>
+      </nav>

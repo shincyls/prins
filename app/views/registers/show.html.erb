@@ -1,0 +1,71 @@
+<main style="background-color:whitesmoke;" >
+    <div class="position-relative mt-4 mb-4">
+      <div class="container p-4 shadow rounded">
+        <div class="row justify-content-center">
+          <div class="col-lg-12" id="print-section" style="width:250px;height:204px;background-color:white;">
+                <div class="row mt-2">
+                    <div class="col-md-2"><h6>First Name</h6></div>
+                    <div class="col-md-4"><%=@register.first_name%></div>
+                    <div class="col-md-2"><h6>Last Name</h6></div>
+                    <div class="col-md-4"><%=@register.last_name%></div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-2"><h6>Phone Number</h6></div>
+                    <div class="col-md-4"><%=@register.phone_number%></div>
+                    <div class="col-md-2"><h6>Email</h6></div>
+                    <div class="col-md-4"><%=@register.email%></div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-2"><h6>Field 1</h6></div>
+                    <div class="col-md-10"><%=@register.field_1%></div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-2"><h6>Field 2</h6></div>
+                    <div class="col-md-10"><%=@register.field_2%></div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-2"><h6>Field 3</h6></div>
+                    <div class="col-md-10"><%=@register.field_3%></div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>
+
+<div class="row justify-content-center">
+    <%= link_to "Option A", printa_register_path(@register), class: "btn btn-primary m-2", remote: true %>
+    <%= link_to "Option B", printb_register_path(@register), class: "btn btn-primary m-2", remote: true %>
+    <%= link_to "Option C", printc_register_path(@register), class: "btn btn-primary m-2", remote: true %>
+    <%= link_to "Option D", printd_register_path(@register), class: "btn btn-primary m-2", remote: true %>
+    <%= link_to "Option E", printe_register_path(@register), class: "btn btn-primary m-2", remote: true %>
+</div>
+
+<div class="row justify-content-center">
+    <%= link_to "Click to Print", "", class: "btn btn-primary m-2", id: "printBtn", onclick: "printDiv('print')" %>
+</div>
+
+
+<script>
+$("#printBtn").click(function(){
+    printcontent($("#print-section").html());
+});
+
+function printcontent(content)
+{
+    var mywindow = window.open('', '', '');
+    mywindow.document.write('<html><title>Print</title><body>');
+    mywindow.document.write(content);
+    mywindow.document.write('</body></html>');
+    mywindow.document.close();
+    mywindow.print();
+    return true;
+}
+</script>
+
+
+

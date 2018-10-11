@@ -1,13 +1,23 @@
 Rails.application.routes.draw do
 
+  root 'registers#index'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  root 'statics#index'
+  resources :registers do
+    collection do
+      get :list
+    end
+    member do
+      get :printa
+      get :printb
+      get :printc
+      get :printd
+      get :printe
+    end
+  end
 
   resources :users
-
-  resources :dresses
-  get 'dresses/search', to: 'dresses#search', as: 'search_dresses'
 
   resources :sessions
   
