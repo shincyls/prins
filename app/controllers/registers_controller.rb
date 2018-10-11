@@ -1,7 +1,6 @@
 class RegistersController < ApplicationController
   before_action :set_register, only: [:show, :edit, :update, :destroy]
 
-
   def index
     respond_to :html, :js
     @registers = Register.all.order("created_at asc")
@@ -58,31 +57,26 @@ class RegistersController < ApplicationController
   end
 
   # POST /registers
-  # POST /registers.json
   def create
-    @register = Register.new(register_params)
-
     respond_to do |format|
+      @register = Register.new(register_params)
       if @register.save
-        format.html { redirect_to @register, notice: 'Register was successfully created.' }
-        format.json { render :show, status: :created, location: @register }
+        format.html { redirect_to @register, notice: 'Register was successfully updated.' }
       else
         format.html { render :new }
-        format.json { render json: @register.errors, status: :unprocessable_entity }
+        format.js { flash.now[:warning] = @register.errors.full_messages }
       end
     end
   end
 
   # PATCH/PUT /registers/1
-  # PATCH/PUT /registers/1.json
   def update
     respond_to do |format|
       if @register.update(register_params)
         format.html { redirect_to @register, notice: 'Register was successfully updated.' }
-        format.json { render :show, status: :ok, location: @register }
       else
         format.html { render :edit }
-        format.json { render json: @register.errors, status: :unprocessable_entity }
+        format.js { flash.now[:warning] = @register.errors.full_messages }
       end
     end
   end

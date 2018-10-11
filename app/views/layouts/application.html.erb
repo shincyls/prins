@@ -8,14 +8,15 @@
     <%= favicon_link_tag 'brand/favicon.png' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-
+ 
   </head>
 
-  <body style="min-height:1000rem;">
-    <%= render partial: 'statics/message' %>
+  <body>
+    <div id="flash-message"><%= render partial: 'statics/message' %></div>
     <%= render partial: 'statics/navbar' %>
-    <%= yield %>
+    <div class="h-100">
+      <%= yield %>
+    </div>
     <%= render partial: 'statics/modal' %>
     <%= render partial: 'statics/footer' %>
   </body>

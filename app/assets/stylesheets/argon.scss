@@ -5244,11 +5244,8 @@ input[type='button'].btn-block
 .navbar
 {
     position: relative;
-
     display: flex;
-
-    padding: 0.5rem 0.5rem; 
-
+    padding: 0.3rem 0.3rem; 
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
@@ -6395,7 +6392,7 @@ input[type='button'].btn-block
 
 .alert
 {
-    position: absolute;
+    position: fixed;
 
     margin-bottom: 1rem;
     padding: 1rem 1.5rem;
@@ -6494,16 +6491,16 @@ input[type='button'].btn-block
 .alert-warning
 {
     color: #fff;
-    border-color: #fc7c5f; 
-    background-color: #fc7c5f;
+    border-color: #fcd25f; 
+    background-color: #fcc55f;
 }
 .alert-warning hr
 {
-    border-top-color: #fc6846;
+    border-top-color: #fcd146;
 }
 .alert-warning .alert-link
 {
-    color: #fa3a0e;
+    color: #faaf0e;
 }
 
 .alert-danger
