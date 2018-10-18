@@ -63,7 +63,7 @@ class RegistersController < ApplicationController
       if @register.save
         @register.convert_ticket_number
         @register.save
-        format.html { redirect_to new_register_path, notice: "#{@register.first_name} #{@register.last_name} with Ticket Number #{@register.ticket_number} is successfully registered." }
+        format.html { redirect_to new_register_path, notice: "#{@register.first_name} #{@register.last_name} with Ticket Number #{@register.ticket_number} has been successfully registered." }
       else
         format.html { render :new }
         format.js { flash.now[:warning] = @register.errors.full_messages }
