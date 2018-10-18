@@ -1,4 +1,43 @@
-<h3>No <%=@register.id%> A</h3>
-<p>Name         : <%=@register.first_name%> <%=@register.last_name%></p>
-<p>Phone Number : <%=@register.phone_number%></p>
-<p>Email        : <%=@register.email%></p>
+<div class="modal-header bg-info" id="modal-header">
+    <span class='text-white display-6'>Print Preview</span>
+</div>
+
+<div class="modal-body p-0" id="modal-body">
+    <div class="position-relative mt-4 mb-4">
+      <div class="container p-4">
+        <div class="row">
+          <div class="col-lg-12 justify-content-center" id="print-section">
+
+            <%= stylesheet_link_tag "print", media: 'print' %>
+
+            <h3 class="text-center"><%=@register.ticket_number%></h3>
+            <p class="text-center">Name: <%=@register.first_name%> <%=@register.last_name%></p>
+            <div class="mx-auto star color-<%= @register.drawing_chance %>"><span class="pacifico text-white display-3"><%= @register.drawing_chance %><span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal-footer" id="modal-footer">
+    <div class="row justify-content-center">
+        <%= link_to "Click to Print", "", class: "btn btn-primary m-2 mr-4", id: "printBtn", onclick: "printDiv('print-section')"  %>
+    </div>
+</div>
+
+
+<script>
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+
+
+

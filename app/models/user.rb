@@ -5,10 +5,6 @@ class User < ApplicationRecord
     validates :first_name, presence: {message: ": Please enter your first name."}
     validates :last_name, presence: {message: ": Please enter your last name."}
 
-    # Active Record Association Defining
-    has_many :user_dress_likes
-    has_many :dresses, through: :user_dress_likes
-
     #Bcrypt with Secured Password
     has_secure_password
 

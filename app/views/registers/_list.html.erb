@@ -3,9 +3,10 @@
         <td><%= r.id %></td>
         <td><%= r.first_name %></td>
         <td><%= r.last_name %></td>
+        <td><%= r.ticket_number %></td>
         <td><%= r.phone_number %></td>
-        <td><%= r.email %></td>
-        <td><span class="bg-success rounded p-1 m-1"><%= link_to 'Show', r, class: "small text-white" %></span></td>
+        <td><%= r.drawing_chance %></td>
+        <td><span class="bg-success rounded p-1 m-1"><%= link_to "Print", printa_register_path(r), class: "small text-white", remote: true %></span></td>
         <td><span class="bg-info rounded p-1 m-1"><%= link_to 'Edit', edit_register_path(r), class: "small text-white" %></span></td>
         <td><span class="bg-danger rounded p-1 m-1"><%= link_to 'Delete', r, method: :delete, class: "small text-white", data: { confirm: 'Press ok to confirm you submission.' } %></span></td>
     </tr>

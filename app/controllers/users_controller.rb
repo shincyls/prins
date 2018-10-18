@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = current_users
-    @dresses = Dress.all
   end
 
   # GET /users/:id

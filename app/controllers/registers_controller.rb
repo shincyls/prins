@@ -4,7 +4,7 @@ class RegistersController < ApplicationController
   def index
     respond_to :html, :js
     @registers = Register.all.order("created_at desc")
-    @registers = @registers.paginate(:page => params[:page], :per_page => 10)
+    @registers = @registers.paginate(:page => params[:page], :per_page => 20)
   end
 
   def list
@@ -15,7 +15,7 @@ class RegistersController < ApplicationController
     else
       @registers = Register.search_registers(params[:query])
     end
-    @registers = @registers.paginate(:page => params[:page], :per_page => 10)
+    @registers = @registers.paginate(:page => params[:page], :per_page => 20)
   end
 
   def show
@@ -59,8 +59,11 @@ class RegistersController < ApplicationController
   def create
     respond_to do |format|
       @register = Register.new(register_params)
+
       if @register.save
-        format.html { redirect_to @register, notice: 'Register was successfully updated.' }
+        @register.convert_ticket_number
+        @register.save
+        format.html { redirect_to new_register_path, notice: "#{@register.first_name} #{@register.last_name} with Ticket Number #{@register.ticket_number} is successfully registered." }
       else
         format.html { render :new }
         format.js { flash.now[:warning] = @register.errors.full_messages }
@@ -98,6 +101,6 @@ class RegistersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def register_params
-      params.require(:register).permit(:first_name, :last_name, :phone_number, :email, :field_1, :field_2, :field_3)
+      params.require(:register).permit(:first_name, :last_name, :phone_number, :email, :drawing_chance)
     end
 end

@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 2018_10_10_095125) do
     t.string "last_name"
     t.string "phone_number"
     t.string "email"
+    t.integer "drawing_chance"
+    t.string "ticket_number", limit: 5
+    t.integer "category", default: 0
     t.string "field_1"
     t.string "field_2"
     t.string "field_3"
