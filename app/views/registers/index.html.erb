@@ -1,17 +1,10 @@
 <div class="row justify-content-center mt-4">
   <div class="col-lg-10 text-center" id="slogan">
     <h2 class="text-black">View and Search Registers</h2>
-      <div class="row">
-        <div class="col-md-8 mx-auto">
-          <div class="form-group ml-4 mr-4">
-            <%= form_tag list_registers_path, remote: true, method: 'get' do %>
-              <div class="input-group mb-4">
-                <%= text_field_tag :query, params[:query], class: "form-control",id:"rounded-form", placeholder: "Search Register (eg: ticket number, first name, last name, contact number)" %>
-                <button class="btn-xl" id="search_button" type="submit">
-                  Search
-                </button>
-              </div>
-            <% end %>
+    <p class="text-black">(searchable: first name, last name, ticket number, status)</p>
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="form-group ml-4 mr-4">
         </div>
       </div>
     </div>
@@ -24,7 +17,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-12">
 
-          <table class="table table-sm table-responsive-sm table-striped">
+          <table id="data-table" class="table table-sm table-responsive-sm table-striped">
             <thead class="bg-success text-white">
               <tr>
                 <th>No</th>
@@ -50,24 +43,21 @@
 
         </div>
       </div>
-      <div class="row justify-content-center" id="load-more">
-        <%= link_to 'Click To Load More', registers_path(:page => @registers.next_page), class: "btn btn-xl mt-3 mb-3", id: "printBtn", remote: true %>
-      </div>
     </div>
   </div>
 </main>
 
 <script>
 
+$(document).ready(function() {
+    $('#data-table').DataTable();
+} );
+
 function printDiv(divName, regid) {
     var mywindow = window.open('/registers/' + regid);
     var printContents = document.getElementById(divName).innerHTML;
-    console.log(printContents);
-    //var originalContents = document.body.innerHTML;
-    //mywindow.document.write(originalContents);
     mywindow.document.body.innerHTML = printContents;
     mywindow.print();
-
     return true;
 }
 
