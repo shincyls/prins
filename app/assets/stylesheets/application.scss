@@ -19,8 +19,8 @@
  @import "font-awesome";
 
  .star {
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
     -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     text-align: center;
@@ -56,4 +56,12 @@
 
 .pacifico {
     font-family: pacifico;
+}
+
+.unprint {
+    color: #d36d6d;
+}
+
+.printed {
+    color: #2dce89;
 }

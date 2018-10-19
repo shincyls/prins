@@ -9,6 +9,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
  
   </head>
 
@@ -19,7 +21,10 @@
       <%= yield %>
     </div>
     <%= render partial: 'statics/modal' %>
+    <% unless controller_name == 'registers' and action_name == 'show' %>
     <%= render partial: 'statics/footer' %>
+    <% end %>
   </body>
 
 </html>
+

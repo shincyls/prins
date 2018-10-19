@@ -5,12 +5,12 @@ class Register < ApplicationRecord
     validates :drawing_chance, presence: {message: " must be selected."}
     # validates :email, uniqueness: {message: " must be unique."}, format: {with: /.+@.+\..+/, message: " format must be valid."}, presence: {message: " must presence."}
 
-    enum category: ["A","B"]
-    enum status: ["","Printed"]
+    enum category: ["walkin","vip"]
+    enum status: ["unprint","printed"]
 
     include PgSearch
     pg_search_scope :search_registers, 
-    against: [:id, :first_name, :last_name, :drawing_chance, :ticket_number, :phone_number, :email, :category],
+    against: [:first_name, :last_name, :drawing_chance, :ticket_number, :phone_number, :email, :category, :status],
     using: [:tsearch]
 
     def convert_ticket_number

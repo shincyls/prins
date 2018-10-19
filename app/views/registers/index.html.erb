@@ -28,6 +28,7 @@
             <thead class="bg-success text-white">
               <tr>
                 <th>No</th>
+                <th>Category</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Ticket No.</th>
@@ -47,8 +48,6 @@
 
           <br>
 
-          <%= link_to 'New Register', new_register_path %>
-
         </div>
       </div>
       <div class="row justify-content-center" id="load-more">
@@ -58,14 +57,18 @@
   </div>
 </main>
 
-
 <script>
 
-function printDiv(divName) {
+function printDiv(divName, regid) {
+    var mywindow = window.open('/registers/' + regid);
     var printContents = document.getElementById(divName).innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    location.reload();
+    console.log(printContents);
+    //var originalContents = document.body.innerHTML;
+    //mywindow.document.write(originalContents);
+    mywindow.document.body.innerHTML = printContents;
+    mywindow.print();
+
+    return true;
 }
 
 </script>
