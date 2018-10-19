@@ -50,7 +50,12 @@
 <script>
 
 $(document).ready(function() {
-    $('#data-table').DataTable();
+  $('#data-table').DataTable({
+  "search": {
+    "caseInsensitive": false
+  }
+});
+    
 } );
 
 function printDiv(divName, regid) {
