@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2018_10_10_095125) do
     t.string "email"
     t.integer "drawing_chance"
     t.string "ticket_number", limit: 5
+    t.integer "status", default: 0
     t.integer "category", default: 0
     t.string "field_1"
     t.string "field_2"

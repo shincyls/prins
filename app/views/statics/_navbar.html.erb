@@ -16,13 +16,13 @@
               </div>
             </div>
             <ul class="navbar-nav ml-lg-auto">
+              <% if logged_in? %>
               <li class="nav-item">
                 <%= link_to "View", registers_path, class: "nav-link"%>
               </li>
               <li class="nav-item">
                 <%= link_to "New", new_register_path, class: "nav-link"%>
               </li>
-              <% if logged_in? %>
               <li class="nav-item">
                 <%= link_to 'Sign Out', session_path('logout'), method: :delete, class: "nav-link" %>
               </li>

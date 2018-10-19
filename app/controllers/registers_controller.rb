@@ -1,5 +1,6 @@
 class RegistersController < ApplicationController
   before_action :set_register, only: [:show, :edit, :update, :destroy]
+  before_action :require_login
 
   def index
     respond_to :html, :js
@@ -25,25 +26,12 @@ class RegistersController < ApplicationController
     respond_to :html, :js
     @register = Register.find(params[:id])
   end
-  
-  def printb
-    respond_to :html, :js
-    @register = Register.find(params[:id])
-  end
-  
-  def printc
-    respond_to :html, :js
-    @register = Register.find(params[:id])
-  end
 
-  def printd
+  def printupdate
     respond_to :html, :js
     @register = Register.find(params[:id])
-  end
-
-  def printe
-    respond_to :html, :js
-    @register = Register.find(params[:id])
+    @register.status = 1
+    @register.save
   end
 
   # GET /registers/new
@@ -97,6 +85,13 @@ class RegistersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_register
       @register = Register.find(params[:id])
+    end
+
+    def require_login
+      unless logged_in?
+        flash[:alert] = "You must be logged in to access this section"
+        redirect_to root_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

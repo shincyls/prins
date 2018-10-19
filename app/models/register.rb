@@ -6,6 +6,7 @@ class Register < ApplicationRecord
     # validates :email, uniqueness: {message: " must be unique."}, format: {with: /.+@.+\..+/, message: " format must be valid."}, presence: {message: " must presence."}
 
     enum category: ["A","B"]
+    enum status: ["","Printed"]
 
     include PgSearch
     pg_search_scope :search_registers, 
