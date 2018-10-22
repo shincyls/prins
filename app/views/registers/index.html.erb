@@ -5,6 +5,10 @@
     <div class="row">
       <div class="col-md-8 mx-auto">
         <div class="form-group ml-4 mr-4">
+          <%= link_to "All", list_registers_path(query: 0), remote: true, class: "btn btn-outline-success" %>
+          <%= link_to "Draw 1", list_registers_path(query: 1), remote: true, class: "btn btn-outline-success" %>
+          <%= link_to "Draw 3", list_registers_path(query: 3), remote: true, class: "btn btn-outline-success" %>
+          <%= link_to "Draw 5", list_registers_path(query: 5), remote: true, class: "btn btn-outline-success" %>
         </div>
       </div>
     </div>
@@ -52,7 +56,7 @@
 $(document).ready(function() {
   $('#data-table').DataTable({
   "search": {
-    "caseInsensitive": false
+    "caseInsensitive": true
   }
 });
     

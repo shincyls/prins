@@ -5,7 +5,7 @@ class Register < ApplicationRecord
     validates :drawing_chance, presence: {message: " must be selected."}
     # validates :email, uniqueness: {message: " must be unique."}, format: {with: /.+@.+\..+/, message: " format must be valid."}, presence: {message: " must presence."}
 
-    enum category: ["walkin","vip"]
+    enum category: ["Walkin","Registered","RSVP"]
     enum status: ["unprint","printed"]
 
     include PgSearch
@@ -16,6 +16,18 @@ class Register < ApplicationRecord
     def convert_ticket_number
         @convert = sprintf("N%04d", self.id)
         self.ticket_number = @convert
+    end
+
+    def self.to_csv
+        attributes = %w{id email name}
+    
+        CSV.generate(headers: true) do |csv|
+          csv << attributes
+    
+          all.each do |user|
+            csv << attributes.map{ |attr| user.send(attr) }
+          end
+        end
     end
 
 end

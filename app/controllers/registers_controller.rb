@@ -6,17 +6,20 @@ class RegistersController < ApplicationController
     respond_to :html, :js
     @registers = Register.all.order("created_at desc")
     #@registers = @registers.paginate(:page => params[:page], :per_page => 20)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @registers.to_csv, filename: "users-#{Date.today}.csv" }
+    end
+
   end
 
   def list
     respond_to :html, :js
-    @registers = Array.new
-    if params[:query].empty? || params[:query] == "all"
+    if params[:query] == "0"
       @registers = Register.all.order("created_at desc")
     else
-      @registers = Register.search_registers(params[:query])
+      @registers = Register.all.where(drawing_chance: params[:query]).order("created_at desc")
     end
-      #@registers = @registers.paginate(:page => params[:page], :per_page => 20)
   end
 
   def show
