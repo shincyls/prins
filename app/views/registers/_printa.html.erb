@@ -6,22 +6,16 @@
 </div>
 
 <div class="modal-body p-0" id="modal-body">
-    <div class="position-relative mt-4 mb-4">
-
-      <div class="container p-4">
-        <div class="row">
-          <div class="col-lg-12 justify-content-center" id="print-section">
-            <div style="border:2px dashed grey;margin:1rem">
-                <h3 class="text-center"><%=@register.ticket_number%></h3>
-                <p class="text-center">Name: <%=@register.first_name%> <%=@register.last_name%></p>
-                <div class="mx-auto star color-<%= @register.drawing_chance %>">
-                    <span class="pacifico text-white display-2"><%= @register.drawing_chance %><span>
-                </div>
-            </div>
-          </div>
+    <div id="print-section">
+        <div class="container">
+        <%= image_tag "brand/ogawa-#{@register.drawing_chance}.jpg", style: "width:100%;" %>
+        <div class="bottom-left">
+            <p class="m-0" style="font-size:12px;"><%= @register.first_name.upcase %> <%= @register.last_name.upcase %></p>
+            <p class="m-0" style="font-size:12px;">861125-38-6475</p>
+            <p class="m-0" style="font-size:12px;"><%= @register.phone_number %></p>
         </div>
-      </div>
-
+        <div class="top-right"><p style="font-size:28px;"><%= @register.ticket_number %></p></div>
+        </div>
     </div>
 </div>
 

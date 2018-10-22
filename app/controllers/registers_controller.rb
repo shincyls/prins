@@ -15,10 +15,11 @@ class RegistersController < ApplicationController
 
   def list
     respond_to :html, :js
-    if params[:query] == "0"
+    @data = params[:category]
+    if params[:category] == "3"
       @registers = Register.all.order("created_at desc")
     else
-      @registers = Register.all.where(drawing_chance: params[:query]).order("created_at desc")
+      @registers = Register.all.where(category: params[:category]).order("created_at desc")
     end
   end
 

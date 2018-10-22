@@ -5,7 +5,7 @@ class Register < ApplicationRecord
     validates :drawing_chance, presence: {message: " must be selected."}
     # validates :email, uniqueness: {message: " must be unique."}, format: {with: /.+@.+\..+/, message: " format must be valid."}, presence: {message: " must presence."}
 
-    enum category: ["Walkin","Registered","RSVP"]
+    enum category: ["Walk-In","Registered","RSVP"]
     enum status: ["unprint","printed"]
 
     include PgSearch

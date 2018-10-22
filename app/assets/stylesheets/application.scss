@@ -18,42 +18,6 @@
 
  @import "font-awesome";
 
- .star {
-    height: 120px;
-    width: 120px;
-    -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    text-align: center;
-    color: black;
-  }
-  
-  .star::before {
-    display: inline-block;
-    height: 100%;
-    background: rgb(235, 217, 56);
-    vertical-align: middle;
-    // font-family: FontAwesome;
-    content: '';
-  }
-
-.color-1 {
-    background: #2dce89;
-}
-
-.color-3 {
-    background: #11cdef;
-}
-
-.color-5 {
-    background: #fb6340;
-}
-
-.staran {
-    height: 100px;
-    width: 100px;
-    background-image: url('icons/star-solid.svg');
-  }
-
 .pacifico {
     font-family: pacifico;
 }
@@ -64,4 +28,44 @@
 
 .printed {
     color: #2dce89;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 12%;
+    left: 20%;
+    font-family: arial;
+    color: black;
+}
+
+.top-left {
+    position: absolute;
+    top: 12%;
+    left: 24%;
+}
+
+.top-right {
+    position: absolute;
+    top: 15%;
+    right: 22%;
+    font-family: arial;
+    color: black;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 12%;
+    right: 24%;
+}
+
+.centered {
+    position: absolute;
+    top: 12%;
+    left: 24%;
+    transform: translate(-50%, -50%);
 }

@@ -11,7 +11,7 @@ class User < ApplicationRecord
     #CarrierWave for uploader
     mount_uploader :avatar, AvatarUploader
 
-    enum role: ["admin", "user"]
+    enum role: ["super", "admin", "user"]
 
     def favourites
         total = self.dresses.count
