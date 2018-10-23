@@ -1,5 +1,45 @@
 @media print {
 
+    .container {
+        position: relative;
+        text-align: center;
+    }
+    
+    .bottom-left {
+        position: absolute;
+        bottom: 12%;
+        left: 20%;
+        font-family: arial;
+        color: black;
+    }
+    
+    .top-left {
+        position: absolute;
+        top: 12%;
+        left: 24%;
+    }
+    
+    .top-right {
+        position: absolute;
+        top: 15%;
+        right: 22%;
+        font-family: arial;
+        color: black;
+    }
+    
+    .bottom-right {
+        position: absolute;
+        bottom: 12%;
+        right: 24%;
+    }
+    
+    .centered {
+        position: absolute;
+        top: 12%;
+        left: 24%;
+        transform: translate(-50%, -50%);
+    }
+
 nav{
 	display: none;
 }
