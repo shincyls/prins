@@ -10,43 +10,43 @@
     }
 
     .container {
-        position: relative !important;
-        text-align: center !important;
-    }
-
-    .top-right {
-        position: absolute !important;
-        top: 12% !important;
-        right: 22% !important;
-        font-family: arial !important;
-        color: black !important;
+        position: relative;
+        text-align: center;
     }
     
     .bottom-left {
-        position: absolute !important;
-        bottom: 10% !important;
-        left: 15% !important;
-        font-family: arial !important;
-        color: black !important;
+        position: absolute;
+        bottom: 12%;
+        left: 10%;
+        font-family: arial;
+        color: black;
     }
     
     .top-left {
-        position: absolute !important;
-        top: 12% !important;
-        left: 24% !important;
+        position: absolute;
+        top: 12%;
+        left: 24%;
+    }
+    
+    .top-right {
+        position: absolute;
+        top: 12%;
+        right: 20%;
+        font-family: arial;
+        color: black;
     }
     
     .bottom-right {
-        position: absolute !important;
-        bottom: 12% !important;
-        right: 24% !important;
+        position: absolute;
+        bottom: 12%;
+        right: 24%;
     }
     
     .centered {
-        position: absolute !important;
+        position: absolute;
         top: 12%;
         left: 24%;
-        transform: translate(-50%, -50%) !important;
+        transform: translate(-50%, -50%);
     }
 
     

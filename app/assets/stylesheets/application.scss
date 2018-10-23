@@ -38,7 +38,7 @@
 .bottom-left {
     position: absolute;
     bottom: 12%;
-    left: 18%;
+    left: 10%;
     font-family: arial;
     color: black;
 }
@@ -51,8 +51,8 @@
 
 .top-right {
     position: absolute;
-    top: 15%;
-    right: 22%;
+    top: 12%;
+    right: 20%;
     font-family: arial;
     color: black;
 }
@@ -71,9 +71,9 @@
 }
 
 .white-shadow {
-    -webkit-text-stroke: 1px whitesmoke;
+    text-shadow: 0 0 0.2rem whitesmoke;
 }
 
 .white-shadow-sm {
-    -webkit-text-stroke: 0.3px whitesmoke;
+    text-shadow: 0 0 0.2rem whitesmoke;
 }
