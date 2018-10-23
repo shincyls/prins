@@ -6,7 +6,11 @@
         <td><%= r.phone_number_2 %></td>
         <td><%= r.identity_number %></td>
         <td><%= r.drawing_chance %></td>
-        <td>Check</td>
+        <td>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="check-<%= r.id %>">
+            </div>
+        </td>
         <td class="<%= r.status %>" id="status-<%= r.id %>"><%= r.status %></td>
         <td><span class="bg-success rounded p-1 m-1"><%= link_to "Print", printa_register_path(r), class: "small text-white", remote: true %></span></td>
         <% if current_user.super? %>

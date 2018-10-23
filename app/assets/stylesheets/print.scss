@@ -1,101 +1,54 @@
 @media print {
 
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
     .container {
-        position: relative;
-        text-align: center;
+        position: relative !important;
+        text-align: center !important;
+    }
+
+    .top-right {
+        position: absolute !important;
+        top: 12% !important;
+        right: 22% !important;
+        font-family: arial !important;
+        color: black !important;
     }
     
     .bottom-left {
-        position: absolute;
-        bottom: 12%;
-        left: 20%;
-        font-family: arial;
-        color: black;
+        position: absolute !important;
+        bottom: 10% !important;
+        left: 15% !important;
+        font-family: arial !important;
+        color: black !important;
     }
     
     .top-left {
-        position: absolute;
-        top: 12%;
-        left: 24%;
-    }
-    
-    .top-right {
-        position: absolute;
-        top: 15%;
-        right: 22%;
-        font-family: arial;
-        color: black;
+        position: absolute !important;
+        top: 12% !important;
+        left: 24% !important;
     }
     
     .bottom-right {
-        position: absolute;
-        bottom: 12%;
-        right: 24%;
+        position: absolute !important;
+        bottom: 12% !important;
+        right: 24% !important;
     }
     
     .centered {
-        position: absolute;
+        position: absolute !important;
         top: 12%;
         left: 24%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) !important;
     }
 
-nav{
-	display: none;
-}
-
-body {
-	font-size: 12pt;
-	font-family: Georgia,Times, serif;
-	color: #000;
-	background: #fff;
-	width: 400px;
-	height: 400px;
-}
-
-img {
-	max-width: 400px;
-}
-
-.star {
-    height: 100px;
-    width: 100px;
-    -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    text-align: center;
-    color: black;
-  }
-  
-  .star::before {
-    display: inline-block;
-    height: 100%;
-    background: blue;
-    vertical-align: middle;
-    // font-family: FontAwesome;
-    content: '';
-  }
-
-.color-1 {
-    background: #2dce89;
-}
-
-.color-3 {
-    background: #11cdef;
-}
-
-.color-5 {
-    background: #fb6340;
-}
-
-
-.staran {
-    height: 100px;
-    width: 100px;
-    background-image: url('icons/star-solid.svg');
-  }
-
-.pacifico {
-    font-family: pacifico;
-}
+    
 
 }

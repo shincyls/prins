@@ -7,14 +7,20 @@
 
 <div class="modal-body p-0" id="modal-body">
     <div id="print-section">
-        <div class="container">
-        <%= image_tag "brand/ogawa-#{@register.drawing_chance}.jpg", style: "width:100%;" %>
-        <div class="top-right"><p style="font-size:28px;"><%= @register.ticket_number %></p></div>
-        </div>
-        <div class="bottom-left">
-            <p class="m-0" style="font-size:12px;"><%= @register.full_name.upcase %></p>
-            <p class="m-0" style="font-size:12px;"><%= @register.identity_number %></p>
-            <p class="m-0" style="font-size:12px;"><%= @register.phone_number %></p>
+        <div class="row">
+            <div class="col-12">
+                <%= image_tag "brand/ogawa-#{@register.drawing_chance}.jpg", style: "width:100%;" %>
+                <div class="top-right">
+                    <p style="font-size:2rem;font-family:Righteous;"><%= @register.ticket_number %></p>
+                </div>
+            </div>
+            <div class="bottom-left col-6">
+                <p class="white-shadow-sm" style="font-size:0.8rem;font-weight:bold;font-family:Righteous;"><%= @register.full_name.upcase %></p>
+                <% if @register.identity_number != "0" %>
+                <p class="white-shadow-sm" style="font-size:0.8rem;font-weight:bold;font-family:Righteous;"><%= @register.identity_number %></p>
+                <% end %>
+                <p class="white-shadow-sm" style="font-size:0.8rem;font-weight:bold;font-family:Righteous;"><%= @register.phone_number %></p>
+            </div>
         </div>
     </div>
 </div>

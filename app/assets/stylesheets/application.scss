@@ -38,7 +38,7 @@
 .bottom-left {
     position: absolute;
     bottom: 12%;
-    left: 20%;
+    left: 18%;
     font-family: arial;
     color: black;
 }
@@ -68,4 +68,12 @@
     top: 12%;
     left: 24%;
     transform: translate(-50%, -50%);
+}
+
+.white-shadow {
+    -webkit-text-stroke: 1px whitesmoke;
+}
+
+.white-shadow-sm {
+    -webkit-text-stroke: 0.3px whitesmoke;
 }
