@@ -1,13 +1,14 @@
-<div class="modal-body p-0" id="modal-body">
-    <div id="print-section">
-        <div class="container">
-        <%= image_tag "brand/ogawa-#{@register.drawing_chance}.jpg", style: "width:100%;" %>
-        <div class="top-right"><p style="font-size:28px;"><%= @register.ticket_number %></p></div>
-        </div>
-        <div class="bottom-left">
-            <p class="m-0" style="font-size:12px;"><%= @register.full_name.upcase %></p>
-            <p class="m-0" style="font-size:12px;"><%= @register.identity_number %></p>
-            <p class="m-0" style="font-size:12px;"><%= @register.phone_number %></p>
+
+    <div class="row">
+        <div class="col-4"d="print-section">
+            <div class="container">
+            <%= image_tag "brand/ogawa-#{@register.drawing_chance}.jpg", style: "width:100%;" %>
+            <div class="top-right"><p style="font-size:28px;"><%= @register.ticket_number %></p></div>
+            </div>
+            <div class="bottom-left">
+                <p class="m-0" style="font-size:12px;"><%= @register.full_name.upcase %></p>
+                <p class="m-0" style="font-size:12px;"><%= @register.identity_number %></p>
+                <p class="m-0" style="font-size:12px;"><%= @register.phone_number %></p>
+            </div>
         </div>
     </div>
-</div>
