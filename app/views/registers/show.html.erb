@@ -2,12 +2,12 @@
     <div id="print-section">
         <div class="container">
         <%= image_tag "brand/ogawa-#{@register.drawing_chance}.jpg", style: "width:100%;" %>
-        <div class="bottom-left">
-            <p class="m-0" style="font-size:12px;"><%= @register.first_name.upcase %> <%= @register.last_name.upcase %></p>
-            <p class="m-0" style="font-size:12px;">861125-38-6475</p>
-            <p class="m-0" style="font-size:12px;"><%= @register.phone_number %></p>
-        </div>
         <div class="top-right"><p style="font-size:28px;"><%= @register.ticket_number %></p></div>
+        </div>
+        <div class="bottom-left">
+            <p class="m-0" style="font-size:12px;"><%= @register.full_name.upcase %></p>
+            <p class="m-0" style="font-size:12px;"><%= @register.identity_number %></p>
+            <p class="m-0" style="font-size:12px;"><%= @register.phone_number %></p>
         </div>
     </div>
 </div>

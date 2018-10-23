@@ -25,12 +25,14 @@ ActiveRecord::Schema.define(version: 2018_10_10_095125) do
   end
 
   create_table "registers", force: :cascade do |t|
+    t.string "full_name"
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
     t.string "phone_number_2"
     t.string "identity_number"
-    t.integer "drawing_chance"
+    t.float "purchase", default: 0.0
+    t.integer "drawing_chance", default: 0
     t.string "ticket_number", limit: 5
     t.integer "status", default: 0
     t.integer "category", default: 0

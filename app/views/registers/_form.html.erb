@@ -6,17 +6,15 @@
               <%= form_for @register, remote: true do |f| %>
 
                 <div class="row mt-2">
-                    <div class="col-md-2"><h6>First Name*</h6></div>
-                    <div class="col-md-4"><%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %></div>
-                    <div class="col-md-2"><h6>Last Name*</h6></div>
-                    <div class="col-md-4"><%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %></div>
+                    <div class="col-md-2"><h6>Full Name*</h6></div>
+                    <div class="col-md-10"><%= f.text_field :first_name, placeholder: "Full Name", class: "form-control" %></div>
                 </div>
 
                 <div class="row mt-2">
                     <div class="col-md-2"><h6>Phone Number</h6></div>
                     <div class="col-md-4"><%= f.text_field :phone_number, placeholder: "Phone Number (Optional)", class: "form-control" %></div>
-                    <div class="col-md-2"><h6>Email</h6></div>
-                    <div class="col-md-4"><%= f.text_field :email, placeholder: "Email (Optional)", class: "form-control" %></div>
+                    <div class="col-md-2"><h6>IC / Passport Number</h6></div>
+                    <div class="col-md-4"><%= f.text_field :identity_number, placeholder: "IC / Passport Number (Optional)", class: "form-control" %></div>
                 </div>
 
                 <br>
