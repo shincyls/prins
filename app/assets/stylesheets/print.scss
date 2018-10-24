@@ -5,35 +5,46 @@
         print-color-adjust: exact;
     }
 
+    @page {
+        size: 4in 3in;
+    }
+
+
+
     img {
-        max-width: 100% !important;
+        width: 100% !important;
+        height: 100% !important;
     }
 
     .container {
         position: relative;
         text-align: center;
     }
+
+    .top-right {
+        position: absolute;
+        top: 8%;
+        right: 12%;
+        font-size: 10rem !important;
+        color: black;
+    }
     
     .bottom-left {
         position: absolute;
-        bottom: 15%;
-        left: 10%;
-        font-family: arial;
+        bottom: 11%;
+        left: 6%;
+    }
+
+    .bottom-left .p {
+        font-size: 5rem !important;
         color: black;
     }
+    
     
     .top-left {
         position: absolute;
         top: 12%;
         left: 24%;
-    }
-    
-    .top-right {
-        position: absolute;
-        top: 12%;
-        right: 16%;
-        font-family: arial;
-        color: black;
     }
     
     .bottom-right {

@@ -1,26 +1,27 @@
     <%= stylesheet_link_tag "print", media: 'print' %>
-
+<body>
     <div class="modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-body p-0">
                 <div id="print-section">
                     <div class="row">
                         <div class="col-12">
-                            <%= image_tag "brand/ogawa-#{@register.drawing_chance}.jpg", style: "width:100%;" %>
+                            <%= image_tag "brand/ogawa-#{@register.drawing_chance}.jpg" %>
                             <div class="top-right">
                                 <p style="font-size:2rem;font-family:Righteous;"><%= @register.ticket_number %></p>
                             </div>
                         </div>
                         <div class="bottom-left col-5">
-                            <p class="white-shadow-sm m-0" style="font-size:0.7rem;font-family:Righteous;"><%= @register.full_name.upcase %></p>
+                            <p class="white-shadow-sm m-0" style="font-size:0.8rem;font-family:Righteous;"><%= @register.full_name.upcase %></p>
                             <% if @register.identity_number != "0" %>
-                            <p class="white-shadow-sm m-0" style="font-size:0.7rem;font-family:Righteous;"><%= @register.identity_number %></p>
+                            <p class="white-shadow-sm m-0" style="font-size:0.8rem;font-family:Righteous;"><%= @register.identity_number %></p>
                             <% end %>
-                            <p class="white-shadow-sm m-0" style="font-size:0.7rem;font-family:Righteous;"><%= @register.phone_number %></p>
+                            <p class="white-shadow-sm m-0" style="font-size:0.8rem;font-family:Righteous;"><%= @register.phone_number %></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</body>
 
