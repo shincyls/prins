@@ -61,8 +61,6 @@ class RegistersController < ApplicationController
       @register = Register.new(register_params)
 
       if @register.save
-        @register.convert_ticket_number
-        @register.save
         format.html { redirect_to new_register_path, notice: "#{@register.first_name} #{@register.last_name} with Ticket Number #{@register.ticket_number} has been successfully registered." }
       else
         format.html { render :new }
@@ -108,6 +106,6 @@ class RegistersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def register_params
-      params.require(:register).permit(:first_name, :last_name, :phone_number, :phone_number_2, :identity_number, :drawing_chance)
+      params.require(:register).permit(:full_name, :first_name, :last_name, :phone_number, :phone_number_2, :identity_number, :drawing_chance)
     end
 end
