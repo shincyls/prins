@@ -33,7 +33,9 @@ class RegistersController < ApplicationController
   def printa
     respond_to :html, :js
     @register = Register.find(params[:id])
-    @register.convert_ticket_number
+    if @register.ticket_number.nil?
+      @register.convert_ticket_number
+    end
     @register.save
   end
 
