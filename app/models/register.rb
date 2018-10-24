@@ -8,14 +8,18 @@ class Register < ApplicationRecord
     enum category: ["Walk-In","Registered","RSVP"]
     enum status: ["unprint","printed"]
 
+    @@running_number = PageContent.find_by(name: "running_value")
+
     include PgSearch
     pg_search_scope :search_registers, 
     against: [:full_name, :first_name, :last_name, :drawing_chance, :ticket_number, :phone_number, :phone_number_2, :identity_number, :identity_number_2, :status],
     using: [:tsearch]
 
     def convert_ticket_number
-        @convert = sprintf("N%04d", self.id)
+        @convert = sprintf("N%04d", @@running_number.value)
         self.ticket_number = @convert
+        @@running_number.value += 1
+        @@running_number.save
     end
 
     def convert_full_name

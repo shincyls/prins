@@ -1,4 +1,7 @@
 class RegistersController < ApplicationController
+  include ApplicationHelper
+  
+
   before_action :set_register, only: [:show, :edit, :update, :destroy]
   before_action :require_login
 
@@ -30,11 +33,13 @@ class RegistersController < ApplicationController
   def printa
     respond_to :html, :js
     @register = Register.find(params[:id])
+    @register.convert_ticket_number
+    @register.save
   end
 
   def printupdate
     respond_to :html, :js
-    @register = Register.find(params[:id])
+    @register = Register.find(params[:id])    
     @register.status = 1
     @register.save
   end

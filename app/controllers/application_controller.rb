@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+  
+  def current_number
+    current_number = 1
+  end
 
   def current_user
     if session[:user_id]

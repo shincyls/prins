@@ -24,13 +24,15 @@ SmarterCSV.process('app/assets/files/ogawa_event.csv', options) do |chunk|
   end
 end
 
-
 Register.all.each do |r|
- r.convert_ticket_number
  r.convert_draw_chance
  r.category = 1
  r.save
 end
+
+PageContent.create!([
+  {name: "running_number", value: 1}
+])
 
 
  User.create!([
