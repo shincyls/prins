@@ -6,14 +6,15 @@
     }
 
     @page {
-        size: 4in 3in;
+        size: 4in 6in;
     }
 
-
-
     img {
-        width: 100% !important;
-        height: 100% !important;
+
+    }
+
+    #actual-section {
+        width: 61%;
     }
 
     .container {
