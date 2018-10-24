@@ -14,7 +14,7 @@
     }
 
     #actual-section {
-        width: 61%;
+        width: 62%;
     }
 
     .container {
@@ -26,7 +26,6 @@
         position: absolute;
         top: 8%;
         right: 12%;
-        font-size: 10rem !important;
         color: black;
     }
     
@@ -36,9 +35,16 @@
         left: 6%;
     }
 
-    .bottom-left .p {
-        font-size: 5rem !important;
-        color: black;
+    .ticket-length {
+        padding: 0 !important;
+    }
+
+    .ticket-number {
+        font-size: 3rem !important;
+    }
+
+    .ticket-font {
+        font-size: 1.1rem !important;
     }
     
     
