@@ -1,7 +1,6 @@
 class RegistersController < ApplicationController
   include ApplicationHelper
   
-
   before_action :set_register, only: [:show, :edit, :update, :destroy]
   before_action :require_login
 

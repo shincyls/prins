@@ -13,6 +13,7 @@ class CreateRegisters < ActiveRecord::Migration[5.2]
       t.integer :status, default: 0
       t.integer :category, default: 0
       t.boolean :attendance, default: false
+      t.string :holder
       t.timestamps
     end
   end

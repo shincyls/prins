@@ -11,6 +11,7 @@
         </div>
       </div>
     </div>
+    <p id="summary" class="text-black">Checked-In <%= Register.where(status: 1).count %> / Total <%= Register.all.count %></p>
     <p class="text-black">(Search: Customer Name, Phone Number, IC Number, Print Status)</p>
   </div>
 </div>
@@ -29,8 +30,11 @@
                 <th>Phone 1</th>
                 <th>Phone 2</th>
                 <th>IC Number</th>
+                <% if current_user.super? %>
+                <th>Purchase (RM)</th>
+                <% end %>
                 <th>Draws</th>
-                <th>Attendance</th>
+                <th>Category</th>
                 <th>Status</th>
                 <th>Show</th>
                 <% if current_user.super? %>

@@ -10,13 +10,12 @@ require 'smarter_csv'
 require 'csv'
 require 'open-uri'
 
-
-
 options = {:col_sep => ';',
-  :row_sep => "\r",
-  :chunk_size => 100,
-  :convert_values_to_numeric => false,
-  :remove_empty_hashes => false}
+  row_sep: "\r",
+  chunk_size: 100,
+  convert_values_to_numeric: false,
+  remove_empty_hashes: false
+}
   
 SmarterCSV.process('app/assets/files/ogawa_event.csv', options) do |chunk|
   chunk.each do |data_hash|
@@ -26,14 +25,13 @@ end
 
 Register.all.each do |r|
  r.convert_draw_chance
- r.category = 1
+ r.convert_category
  r.save
 end
 
 PageContent.create!([
   {name: "running_number", value: 1}
 ])
-
 
  User.create!([
   {username: "super1", first_name: "Super", last_name: "Admin1", email: "super1@prins.com", password: "@dmin!23", role: 0},

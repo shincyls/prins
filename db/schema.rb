@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2018_10_24_052022) do
     t.integer "status", default: 0
     t.integer "category", default: 0
     t.boolean "attendance", default: false
+    t.string "holder"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
