@@ -81,13 +81,15 @@ $('.btn').on('click', function() {
 function loadjs() {
   $(document).ready(function() {
     $('#data-table').DataTable({
-    "search": {
-      "caseInsensitive": true
-    }
+      "search": {
+        "caseInsensitive": true
+      },
+      language : {
+        processing : '<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i><p>Loading Data...</p>'
+      }
+    });
   });
-      
-  } );
-}
+};
 
 function printDiv(divName, regid) {
     var mywindow = window.open('/registers/' + regid);
@@ -95,6 +97,6 @@ function printDiv(divName, regid) {
     mywindow.document.body.innerHTML = printContents;
     mywindow.print();
     return true;
-}
+};
 
 </script>
