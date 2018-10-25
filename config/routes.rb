@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     member do
       get :printa
       get :printupdate
+      post :attendance
     end
   end
 

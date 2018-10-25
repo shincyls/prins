@@ -12,21 +12,40 @@ class RegistersController < ApplicationController
       format.html
       format.csv { send_data @registers.to_csv, filename: "users-#{Date.today}.csv" }
     end
-
   end
 
   def list
     respond_to :html, :js
-    @data = params[:category]
-    if params[:category] == "3"
+    @data = params[:button]
+    if @data == "3"
       @registers = Register.all.order("created_at desc")
     else
-      @registers = Register.all.where(category: params[:category]).order("created_at desc")
+      @registers = Register.all.where(category: @data).order("created_at desc")
     end
+
+    if params[:check] == "false"
+      @registers = @registers.where(attendance: false)
+    end
+
+    if params[:uncheck] == "false"
+      @registers = @registers.where(attendance: true)
+    end
+
   end
 
   def show
     @register = Register.find(params[:id])
+  end
+
+  def attendance
+    respond_to :html, :js
+    @register = Register.find(params[:id])
+    if @register.attendance == true
+      @register.attendance = false
+    else
+      @register.attendance = true
+    end
+    @register.save
   end
 
   def printa
@@ -105,6 +124,6 @@ class RegistersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def register_params
-      params.require(:register).permit(:full_name, :first_name, :last_name, :phone_number, :phone_number_2, :identity_number, :drawing_chance)
+      params.require(:register).permit(:full_name, :first_name, :last_name, :phone_number, :phone_number_2, :identity_number, :drawing_chance, :attendance)
     end
 end

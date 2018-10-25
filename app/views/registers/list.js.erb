@@ -1,7 +1,7 @@
 $('#data-table').dataTable().fnDestroy();
 $('#search').html("<%= j (render 'list') %>");
 $('#data-table').dataTable();
-$("#summary").html('Checked-In <%= @registers.where(status: 1).count %> / Total <%= @registers.all.count %>')
+$("#summary").html('Checked-In <%= @registers.where(attendance: true).count %> / Total <%= @registers.all.count %>')
 
 <% case @data when "0" %>
 	$("#btn-all").attr('class', 'btn btn-outline-primary');
