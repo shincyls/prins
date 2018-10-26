@@ -24,7 +24,6 @@
 
       </div>
     </div>
-    <p id="summary" class="text-black">Checked-In <%= Register.where(status: 1).count %> / Total <%= Register.all.count %></p>
   </div>
 </div>
 
@@ -33,6 +32,7 @@
     <div class="container p-4 shadow rounded">
       <div class="row justify-content-center">
         <div class="col-lg-12">
+          <p id="summary" class="text-black text-left">Checked-In <%= Register.where(attendance: true).count %> / Total <%= Register.all.count %></p>
           <p class="text-black text-right">(Customer Name, Phone Number, IC Number)</p>
           <table id="data-table" class="table table-sm table-responsive-lg table-striped" style="font-size:0.7rem">
             <thead class="bg-success text-white">
@@ -76,7 +76,7 @@
 loadjs();
 
 $('.btn').on('click', function() {
-  $('#summary').html('<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i><p>Loading Data...</p>');
+  $('#summary').html('<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i><span class="small"> loading data...</span>');
 });
 
 function loadjs() {
