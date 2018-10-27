@@ -17,19 +17,30 @@ class RegistersController < ApplicationController
   def list
     respond_to :html, :js
     @data = params[:button]
+    
     if @data == "3"
-      @registers = Register.all.order("created_at desc")
+      @registers = Register.all
     else
-      @registers = Register.all.where(category: @data).order("created_at desc")
+      @registers = Register.all.where(category: @data)
     end
 
-    if params[:check] == "false"
+    if params[:check]
       @registers = @registers.where(attendance: false)
     end
 
-    if params[:uncheck] == "false"
+    if params[:uncheck]
       @registers = @registers.where(attendance: true)
     end
+
+    if params[:hide_sort]
+      @registers = @registers.where(status: 0)
+    end
+
+    if params[:ticket_sort]
+      @registers = @registers.order("ticket_number desc NULLS LAST")
+    end
+
+    @registers = @registers.order("created_at desc")
 
   end
 

@@ -14,10 +14,17 @@
         </div>
 
         <div class="custom-control custom-checkbox d-inline">
-          <%= check_box_tag :check, false, false, id: "check-in"%>
+          <%= check_box_tag :check, true, false, id: "check-in"%>
           <%= label_tag :check, "Hide Checked Customer" %>
-          <%= check_box_tag :uncheck, false, false, id: "not-check-in"%>
+          <%= check_box_tag :uncheck, true, false, id: "not-check-in"%>
           <%= label_tag :uncheck, "Hide Unchecked Customer" %>
+        </div>
+        <br>
+        <div class="custom-control custom-checkbox d-inline">
+          <%= check_box_tag :ticket_sort, true, false, id: "ticket_number"%>
+          <%= label_tag :ticket_sort, "Sort By Ticket Number" %>
+          <%= check_box_tag :hide_sort, true, false, id: "status_unprint"%>
+          <%= label_tag :hide_sort, "Show Unprint Only" %>
         </div>
 
         <% end %>
@@ -47,7 +54,7 @@
                 <% end %>
                 <th>Draws</th>
                 <th>Category</th>
-                <th>Status</th>
+                <th>Ticket</th>
                 <th>CheckIn</th>
                 <th>Show</th>
                 <% if current_user.super? %>
@@ -61,10 +68,7 @@
             </tbody>
 
           </table>
-
-
           <br>
-
         </div>
       </div>
     </div>
@@ -82,6 +86,7 @@ $('.btn').on('click', function() {
 function loadjs() {
   $(document).ready(function() {
     $('#data-table').DataTable({
+      "order": [],
       "search": {
         "caseInsensitive": true
       }
