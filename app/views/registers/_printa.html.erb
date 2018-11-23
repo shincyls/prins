@@ -6,20 +6,20 @@
 </div>
 
 <div class="modal-body p-0" id="modal-body">
-
-    <div class="m-2">
-        <h6>Name:</h6>
-        <h4>
-        <% if @register.first_name.nil? %>
-            <%= @register.full_name %>
-        <% else %>
-            <%= @register.first_name %>
-        <% end %>
-        </h4>
-        <h6>Department:</h6>
-        <h4><%= @register.info_1 %></h4>
+    <div id="print">
+        <div class="m-2">
+            <h6>Name:</h6>
+            <h4>
+            <% if @register.first_name.nil? %>
+                <%= @register.full_name %>
+            <% else %>
+                <%= @register.first_name %>
+            <% end %>
+            </h4>
+            <h6>Department:</h6>
+            <h4><%= @register.info_1 %></h4>
+        </div>
     </div>
-        
 </div>
 
 <div class="modal-footer" id="modal-footer">
@@ -27,6 +27,3 @@
         <%= link_to "Click to Print", printupdate_register_path, class: "btn btn-primary m-2 mr-4", id: "printBtn", remote: true  %>
     </div>
 </div>
-
-
-
