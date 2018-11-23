@@ -8,9 +8,9 @@
 
         <div class="form-group ml-4 mr-4">
           <%= button_tag "All", value: 3, type: "submit", id: "btn-all", class: "btn btn-outline-primary" %>
-          <%= button_tag "Registered", value: 1, type: "submit", id: "btn-reg", class: "btn btn-outline-primary" %>
-          <%= button_tag "RSVP", value: 2, type: "submit", id: "btn-rsvp", class: "btn btn-outline-primary" %>
-          <%= button_tag "Walk-In", value: 0, type: "submit", id: "btn-walkin", class: "btn btn-outline-primary" %>
+          <%= button_tag "Registered", value: 0, type: "submit", id: "btn-walkin", class: "btn btn-outline-primary" %>
+          <%= button_tag "Reserved", value: 1, type: "submit", id: "btn-reg", class: "btn btn-outline-primary" %>
+          <%= button_tag "Others", value: 2, type: "submit", id: "btn-rsvp", class: "btn btn-outline-primary" %>
         </div>
 
         <div class="custom-control custom-checkbox d-inline">
@@ -46,13 +46,8 @@
               <tr>
                 <th>ID</th>
                 <th>Full Name</th>
-                <th>Phone 1</th>
-                <th>Phone 2</th>
-                <th>IC Number</th>
-                <% if current_user.super? %>
-                <th>Purchase (RM)</th>
-                <% end %>
-                <th>Draws</th>
+                <th>Prefered Name</th>
+                <th>Department</th>
                 <th>Category</th>
                 <th>Ticket</th>
                 <th>CheckIn</th>

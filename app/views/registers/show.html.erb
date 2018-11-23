@@ -1,29 +1,7 @@
-<%= stylesheet_link_tag "print", media: 'print' %>
-
-<div class="modal-sm" role="document">
-    <div class="modal-content">
-        <div class="modal-body p-0">
-            <div id="print-section">
-                <div id="actual-section" class="row">
-                    <div class="col-12">
-                        <%= image_tag "brand/ogawa-#{@register.drawing_chance}.jpg", style: "width:100%;" %>
-                        <div class="top-right">
-                            <p class="ticket-number white-shadow-sm m-0" style="font-size:2rem;font-family:Righteous;"><%= @register.ticket_number %></p>
-                        </div>
-                    </div>
-                    <div class="bottom-left ml-2">
-                        <div class="ticket-length col-10 p-0">
-                            <p class="ticket-font white-shadow-sm m-0" style="font-size:0.8rem;font-family:Righteous;"><%= @register.full_name.upcase %></p>
-                        </div>
-                        <% if @register.identity_number != "0" %>
-                        <p class="ticket-font white-shadow-sm m-0" style="font-size:0.8rem;font-family:Righteous;"><%= @register.identity_number %></p>
-                        <% end %>
-                        <p class="ticket-font white-shadow-sm m-0" style="font-size:0.8rem;font-family:Righteous;"><%= @register.phone_number %></p>    
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div id="preview-title" class="row justify-content-center">
+    <h3 class="mt-4">Print Preview</h3>
 </div>
+
+<%= render partial: "preview" %>
 
 

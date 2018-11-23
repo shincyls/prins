@@ -5,7 +5,7 @@ class Register < ApplicationRecord
     # validates :drawing_chance, presence: {message: " must be selected."}
     # validates :email, uniqueness: {message: " must be unique."}, format: {with: /.+@.+\..+/, message: " format must be valid."}, presence: {message: " must presence."}
 
-    enum category: ["Walk-In","Registered","RSVP"]
+    enum category: ["Registered","Reserved","Others"]
     enum status: ["unprint","printed"]
 
     @@running_number = PageContent.find_by(name: "running_value")
@@ -16,7 +16,7 @@ class Register < ApplicationRecord
     using: [:tsearch]
 
     def convert_ticket_number
-        @convert = sprintf("N%04d", @@running_number.value)
+        @convert = sprintf("%03d", @@running_number.value)
         self.ticket_number = @convert
         @@running_number.value += 1
         @@running_number.save

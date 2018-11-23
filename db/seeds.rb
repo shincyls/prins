@@ -17,16 +17,10 @@ options = {:col_sep => ';',
   remove_empty_hashes: false
 }
   
-SmarterCSV.process('app/assets/files/ogawa_event.csv', options) do |chunk|
+SmarterCSV.process('app/assets/files/hla_event.csv', options) do |chunk|
   chunk.each do |data_hash|
     Register.create!(data_hash)
   end
-end
-
-Register.all.each do |r|
- r.convert_draw_chance
- r.convert_category
- r.save
 end
 
 PageContent.create!([
@@ -40,7 +34,8 @@ PageContent.create!([
   {username: "admin2", first_name: "Normal", last_name: "Admin2", email: "admin2@prins.com", password: "qwerasdf", role: 1},
   {username: "admin3", first_name: "Normal", last_name: "Admin3", email: "admin3@prins.com", password: "qwerasdf", role: 1},
   {username: "admin4", first_name: "Normal", last_name: "Admin4", email: "admin4@prins.com", password: "qwerasdf", role: 1},
-  {username: "admin5", first_name: "Normal", last_name: "Admin5", email: "admin5@prins.com", password: "qwerasdf", role: 1}
+  {username: "admin5", first_name: "Normal", last_name: "Admin5", email: "admin5@prins.com", password: "qwerasdf", role: 1},
+  {username: "admin6", first_name: "Normal", last_name: "Admin6", email: "admin6@prins.com", password: "qwerasdf", role: 1}
 ])
 
 

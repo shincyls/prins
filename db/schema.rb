@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_052022) do
+ActiveRecord::Schema.define(version: 2018_10_30_060515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,11 +40,14 @@ ActiveRecord::Schema.define(version: 2018_10_24_052022) do
     t.string "identity_number"
     t.float "purchase", default: 0.0
     t.integer "drawing_chance", default: 0
-    t.string "ticket_number", limit: 5
+    t.string "ticket_number", limit: 3
     t.integer "status", default: 0
     t.integer "category", default: 0
     t.boolean "attendance", default: false
     t.string "holder"
+    t.string "info_1"
+    t.string "info_2"
+    t.string "info_3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

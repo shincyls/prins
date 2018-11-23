@@ -1,72 +1,89 @@
-@media print {
 
-    * {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+  page {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+  }
+  page[size="A4"] {  
+    width: 21cm;
+    height: 29.7cm; 
+  }
+  page[size="A4"][layout="landscape"] {
+    width: 29.7cm;
+    height: 21cm;  
+  }
+  page[size="A3"] {
+    width: 29.7cm;
+    height: 42cm;
+  }
+  page[size="A3"][layout="landscape"] {
+    width: 42cm;
+    height: 29.7cm;  
+  }
+  page[size="A5"] {
+    width: 14.8cm;
+    height: 21cm;
+  }
+  page[size="A5"][layout="landscape"] {
+    width: 21cm;
+    height: 14.8cm;  
+  }
+
+
+  @media print {
+
+    body, page {
+      margin: 0;
+      box-shadow: 0;
+      height: 100%;
+      width: 100%;
     }
 
-    @page {
-        size: 4in 6in;
+    #preview-title {
+        display: none;
     }
 
-    img {
-
+    #print-section {
+        background-image: none !important;
     }
 
-    #actual-section {
-        width: 62%;
+
+    #hla-1 {
+        font-size: 100%;
+        font-family: Arial;
+        margin: 29% 0% 0% 32%;
     }
 
-    .container {
-        position: relative;
+    #hla-2 {
+        font-size:100%;
+        font-family:Arial;
+        margin: 13% 0% 0% 32%;
+    }
+
+    #hla-3 {
+        font-size:480%;
+        font-family:Arial;
         text-align: center;
     }
 
-    .top-right {
-        position: absolute;
-        top: 8%;
-        right: 12%;
-        color: black;
-    }
-    
-    .bottom-left {
-        position: absolute;
-        bottom: 11%;
-        left: 6%;
+    #hla-4 {
+        font-size:70%;
+        font-family:Arial;
+        margin: 33% 0% 0% 41%;
     }
 
-    .ticket-length {
-        padding: 0 !important;
+    #hla-5 {
+        font-size:70%;
+        font-family:Arial;
+        margin: 13% 0% 0% 41%;
     }
 
-    .ticket-number {
-        font-size: 3rem !important;
+    #hla-6 {
+        font-size:480%;
+        font-family:Arial;
+        text-align: center;
     }
 
-    .ticket-font {
-        font-size: 1.1rem !important;
-    }
-    
-    
-    .top-left {
-        position: absolute;
-        top: 12%;
-        left: 24%;
-    }
-    
-    .bottom-right {
-        position: absolute;
-        bottom: 12%;
-        right: 24%;
-    }
-    
-    .centered {
-        position: absolute;
-        top: 12%;
-        left: 24%;
-        transform: translate(-50%, -50%);
-    }
-
-    
-
-}
+  }

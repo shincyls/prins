@@ -1,28 +1,25 @@
 <div class="modal-header bg-info" id="modal-header">
-    <span class='text-white display-6'>Print Preview</span>
+    <span class='text-white display-6'>Check Information</span>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
     </button>
 </div>
 
 <div class="modal-body p-0" id="modal-body">
-    <div id="print-section">
-        <div class="row">
-            <div class="col-12">
-                <%= image_tag "brand/ogawa-#{@register.drawing_chance}.jpg", style: "width:100%;" %>
-                <div class="top-right">
-                    <p style="font-size:2rem;font-family:Righteous;"><%= @register.ticket_number %></p>
-                </div>
-            </div>
-            <div class="bottom-left col-5">
-                <p class="white-shadow-sm m-0" style="font-size:0.8rem;font-family:Righteous;"><%= @register.full_name.upcase %></p>
-                <% if @register.identity_number != "0" %>
-                <p class="white-shadow-sm m-0" style="font-size:0.8rem;font-family:Righteous;"><%= @register.identity_number %></p>
-                <% end %>
-                <p class="white-shadow-sm m-0" style="font-size:0.8rem;font-family:Righteous;"><%= @register.phone_number %></p>
-            </div>
-        </div>
+
+    <div class="m-2">
+        <h6>Name:</h6>
+        <h4>
+        <% if @register.first_name == "" %>
+        <%= @register.full_name %>
+        <% else %>
+        <%= @register.first_name %>
+        <% end %>
+        </h4>
+        <h6>Department:</h6>
+        <h4><%= @register.info_1 %></h4>
     </div>
+        
 </div>
 
 <div class="modal-footer" id="modal-footer">
