@@ -7,7 +7,7 @@
         <div class="col-3"></div>
         <div id="info-row-2 mr-auto" class="part col-5 w-100">
             <p id="hla-1">
-                <% if @register.first_name == "" %>
+                <% if @register.first_name.nil? %>
                 <%= @register.full_name %>
                 <% else %>
                 <%= @register.first_name %>

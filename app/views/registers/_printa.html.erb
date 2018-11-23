@@ -10,10 +10,10 @@
     <div class="m-2">
         <h6>Name:</h6>
         <h4>
-        <% if @register.first_name == "" %>
-        <%= @register.full_name %>
+        <% if @register.first_name.nil? %>
+            <%= @register.full_name %>
         <% else %>
-        <%= @register.first_name %>
+            <%= @register.first_name %>
         <% end %>
         </h4>
         <h6>Department:</h6>
