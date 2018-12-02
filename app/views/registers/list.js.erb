@@ -1,9 +1,6 @@
 $('#data-table').dataTable().fnDestroy();
 $('#search').html("<%= j (render 'list') %>");
-$('#data-table').DataTable({
-    "order": [],
-    "search": {"caseInsensitive": true}
-});
+loadjs();
 $("#summary").html('Checked-In <%= @registers.where(attendance: true).count %> / Total <%= @registers.all.count %>')
 
 <% case @data when "0" %>
