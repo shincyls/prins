@@ -18,10 +18,6 @@
 
  @import "font-awesome";
 
-.pacifico {
-    font-family: pacifico;
-}
-
 .unprint {
     color: #d36d6d;
 }
@@ -30,7 +26,7 @@
     color: #2dce89;
 }
 
-.container {
+.print-container {
     position: relative;
     text-align: center;
 }
@@ -38,7 +34,7 @@
 #print-section {
     width: 595px;
     height: 838px;
-    background-image: url('brand/hla_voucher.jpg');
+    background-image: url('brand/fajarbaru.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -47,38 +43,73 @@
     margin-left: 0.06rem;
 }
 
-#hla-1 {
+.border {
+    border: 1px black dotted;
+}
+
+
+#title-1 {
+    position: absolute;
+    font-size:200%;
+    font-family:Roboto;
+    color: navy;
+    top: 11%;
+    right: 7%;
+    bottom: 83%;
+    left: 79%;
+}
+
+#title-2 {
+    position: absolute;
+    font-size:200%;
+    font-family:Roboto;
+    color: navy;
+    top: 32%;
+    right: 12%;
+    bottom: 59%;
+    left: 14%;
+}
+
+#title-3 {
+    position: absolute;
+    font-size:130%;
+    font-family:Roboto;
+    color: navy;
+    top: 47.5%;
+    right: 33.5%;
+    bottom: 44.5%;
+    left: 18%;
+}
+
+#title-4 {
+    position: absolute;
+    font-size:300%;
+    font-family:Roboto;
+    color: black;
+    top: 47%;
+    right: 16%;
+    bottom: 44%;
+    left: 66.5%;
+}
+
+#title-5 {
+    position: absolute;
     font-size:100%;
-    font-family:Arial;
-    margin: 30% 0% 0% 32%;
+    font-family:Roboto;
+    color: navy;
+    top: 81%;
+    right: 10%;
+    bottom: 14%;
+    left: 40%;
 }
 
-#hla-2 {
-    font-size:100%;
-    font-family:Arial;
-    margin: 24% 0% 0% 32%;
-}
-
-#hla-3 {
-    font-size: 480%;
-    font-family: Arial;
-    text-align: center;
-}
-
-#hla-4 {
-    font-size:70%;
-    font-family:Arial;
-    margin: 35% 0% 0% 38%;
-}
-
-#hla-5 {
-    font-size:70%;
-    font-family:Arial;
-    margin: 13% 0% 0% 38%;
-}
-
-#hla-6 {
-    font-size: 480%;
-    font-family: Arial;
-    text-align: center;
+#title-6 {
+    position: absolute;
+    font-size:200%;
+    font-family:Roboto;
+    color: navy;
+    top: 88%;
+    right: 10%;
+    bottom: 6.8%;
+    left: 40%;
 }
