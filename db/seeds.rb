@@ -17,7 +17,7 @@ options = {:col_sep => ';',
   remove_empty_hashes: false
 }
   
-SmarterCSV.process('app/assets/files/hla_event.csv', options) do |chunk|
+SmarterCSV.process('app/assets/files/fajarbaru.csv', options) do |chunk|
   chunk.each do |data_hash|
     Register.create!(data_hash)
   end

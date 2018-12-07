@@ -40,15 +40,14 @@
       <div class="row justify-content-center">
         <div class="col-lg-12">
           <p id="summary" class="text-black text-left">Checked-In <%= Register.where(attendance: true).count %> / Total <%= Register.all.count %></p>
-          <p class="text-black text-right">(Customer Name, Phone Number, IC Number)</p>
+          <p class="text-black text-right">(Name, Department, Table)</p>
           <table id="data-table" class="table table-sm table-responsive-lg table-striped" style="font-size:0.7rem">
             <thead class="bg-prins text-white">
               <tr>
                 <th>ID</th>
                 <th>Full Name</th>
-                <th>Prefered Name</th>
                 <th>Department</th>
-                <th>Category</th>
+                <th>Table</th>
                 <th>Ticket</th>
                 <th>CheckIn</th>
                 <th>Show</th>
@@ -96,7 +95,7 @@ function loadjs() {
         }        
       ],
       columnDefs: [{
-        targets:[6],
+        targets:[5],
         render: function(data, type, row, meta){
             if(type === 'sort'){
               var $input = $(data).find('input[type="checkbox"]').addBack();

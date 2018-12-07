@@ -2,9 +2,8 @@
     <tr>
         <td><%= r.id %></td>
         <td><%= r.full_name %></td>
-        <td><%= r.first_name %></td>
         <td><%= r.info_1 %></td>
-        <td><%= r.category %></td>
+        <td><%= r.info_2 %></td>
         <td class="<%= r.status %>" id="status-<%= r.id %>"><%= r.ticket_number %></td>
         <td>
             <%= check_box_tag("completed", r.id, r.attendance,
