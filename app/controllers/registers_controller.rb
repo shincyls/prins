@@ -90,7 +90,7 @@ class RegistersController < ApplicationController
       @register = Register.new(register_params)
 
       if @register.save
-        format.html { redirect_to new_register_path, notice: "#{@register.full_name} of #{@register.info_1} has been successfully registered." }
+        format.html { redirect_to new_register_path, notice: "#{@register.full_name} from #{@register.info_1} with table #{@register.info_2} has been successfully registered." }
       else
         format.html { render :new }
         format.js { flash.now[:warning] = @register.errors.full_messages }
@@ -135,6 +135,6 @@ class RegistersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def register_params
-      params.require(:register).permit(:full_name, :first_name, :last_name, :phone_number, :phone_number_2, :identity_number, :category, :drawing_chance, :info_1, :attendance)
+      params.require(:register).permit(:full_name, :first_name, :last_name, :phone_number, :phone_number_2, :identity_number, :category, :drawing_chance, :info_1, :info_2, :attendance)
     end
 end
