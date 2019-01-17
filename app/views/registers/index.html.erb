@@ -1,6 +1,7 @@
 <div class="row justify-content-center mt-4">
   <div class="col-lg-10 text-center" id="slogan">
     <h2 class="text-black">Select Your Register Category</h2>
+    
     <div class="row">
       <div class="col-md-8 mx-auto">
 
@@ -29,6 +30,10 @@
 
         <% end %>
 
+        <% if current_user.super? %>
+          <%= link_to 'Reset Registers', reset_registers_path, method: "post", class: "text-black" %>
+        <% end %>
+
       </div>
     </div>
   </div>
@@ -46,7 +51,8 @@
               <tr>
                 <th>ID</th>
                 <th>Full Name</th>
-                <th>Department</th>
+                <th>Pax</th>
+                <th>Lucky Draw</th>
                 <th>Table</th>
                 <th>Ticket</th>
                 <th>CheckIn</th>

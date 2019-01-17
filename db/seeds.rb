@@ -17,7 +17,7 @@ options = {:col_sep => ';',
   remove_empty_hashes: false
 }
   
-SmarterCSV.process('app/assets/files/fajarbaru.csv', options) do |chunk|
+SmarterCSV.process('app/assets/files/wlk.csv', options) do |chunk|
   chunk.each do |data_hash|
     Register.create!(data_hash)
   end
@@ -27,7 +27,7 @@ PageContent.create!([
   {name: "running_number", value: 1}
 ])
 
- User.create!([
+User.create!([
   {username: "super1", first_name: "Super", last_name: "Admin1", email: "super1@prins.com", password: "@dmin!23", role: 0},
   {username: "super2", first_name: "Super", last_name: "Admin2", email: "super2@prins.com", password: "@dmin!23", role: 0},
   {username: "admin1", first_name: "Normal", last_name: "Admin1", email: "admin1@prins.com", password: "qwerasdf", role: 1},

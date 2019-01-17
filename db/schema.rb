@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2018_10_30_060515) do
     t.string "info_1"
     t.string "info_2"
     t.string "info_3"
+    t.string "info_4"
+    t.string "info_5"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

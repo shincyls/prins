@@ -17,6 +17,8 @@ class CreateRegisters < ActiveRecord::Migration[5.2]
       t.string :info_1
       t.string :info_2
       t.string :info_3
+      t.string :info_4
+      t.string :info_5
       t.timestamps
     end
   end

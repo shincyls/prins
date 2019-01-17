@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :registers do
     collection do
       get :list
+      post :reset
     end
     member do
       get :printa

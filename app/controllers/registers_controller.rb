@@ -75,6 +75,25 @@ class RegistersController < ApplicationController
     @register.save
   end
 
+  def reset
+    @registers = Register.all
+    @registers.each do |r|
+      r.status = 0
+      r.ticket_number = nil
+      r.attendance = false
+      r.save
+    end
+
+    @content = PageContent.find_by(name: "running_number")
+    @content.value = 1
+    @content.save
+    
+    respond_to do |format|
+      format.html { redirect_to registers_path, notice: "Ticket Number and Printing Status has been successfully reset." }
+    end
+
+  end
+
   # GET /registers/new
   def new
     @register = Register.new
@@ -135,6 +154,6 @@ class RegistersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def register_params
-      params.require(:register).permit(:full_name, :first_name, :last_name, :phone_number, :phone_number_2, :identity_number, :category, :drawing_chance, :info_1, :info_2, :attendance)
+      params.require(:register).permit(:full_name, :first_name, :last_name, :phone_number, :phone_number_2, :identity_number, :category, :drawing_chance, :info_1, :info_2, :info_3, :info_4, :info_5, :attendance)
     end
 end
