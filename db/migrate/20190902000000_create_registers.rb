@@ -1,6 +1,7 @@
 class CreateRegisters < ActiveRecord::Migration[5.2]
   def change
     create_table :registers do |t|
+      t.references :event, default: 1
       t.string :full_name
       t.string :first_name
       t.string :last_name

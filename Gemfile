@@ -48,8 +48,6 @@ gem 'pg_search', '~> 2.1', '>= 2.1.2'
 gem 'rails_admin', '~> 1.4', '>= 1.4.1'
 
 # Payment and Security
-gem 'figaro', '~> 1.1', '>= 1.1.1'
-gem 'braintree', '~> 2.90'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

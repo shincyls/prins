@@ -10,21 +10,25 @@ require 'smarter_csv'
 require 'csv'
 require 'open-uri'
 
-options = {:col_sep => ';',
-  row_sep: "\r",
-  chunk_size: 100,
-  convert_values_to_numeric: false,
-  remove_empty_hashes: false
-}
+# options = {:col_sep => ';',
+#   row_sep: "\r",
+#   chunk_size: 100,
+#   convert_values_to_numeric: false,
+#   remove_empty_hashes: false
+# }
   
-SmarterCSV.process('app/assets/files/wlk.csv', options) do |chunk|
-  chunk.each do |data_hash|
-    Register.create!(data_hash)
-  end
-end
+# SmarterCSV.process('app/assets/files/wlk.csv', options) do |chunk|
+#   chunk.each do |data_hash|
+#     Register.create!(data_hash)
+#   end
+# end
 
 PageContent.create!([
   {name: "running_number", value: 1}
+])
+
+Event.create!([
+  {name: "Temporary Event", host_company: "Prins Solution Sdn Bhd"}
 ])
 
 User.create!([

@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_060515) do
+ActiveRecord::Schema.define(version: 2019_09_15_030000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "host_company"
+    t.string "organizer_company"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer "minutes_session"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "page_contents", force: :cascade do |t|
     t.string "name"
@@ -31,7 +43,48 @@ ActiveRecord::Schema.define(version: 2018_10_30_060515) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
+  create_table "poll_banks", force: :cascade do |t|
+    t.bigint "poll_id"
+    t.bigint "poll_voter_id"
+    t.bigint "poll_candidate_id"
+    t.index ["poll_candidate_id"], name: "index_poll_banks_on_poll_candidate_id"
+    t.index ["poll_id"], name: "index_poll_banks_on_poll_id"
+    t.index ["poll_voter_id"], name: "index_poll_banks_on_poll_voter_id"
+  end
+
+  create_table "poll_candidates", force: :cascade do |t|
+    t.bigint "poll_id"
+    t.string "subject"
+    t.string "description"
+    t.string "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["poll_id"], name: "index_poll_candidates_on_poll_id"
+  end
+
+  create_table "poll_voters", force: :cascade do |t|
+    t.bigint "register_id"
+    t.string "voucher_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["register_id"], name: "index_poll_voters_on_register_id"
+  end
+
+  create_table "polls", force: :cascade do |t|
+    t.bigint "event_id", default: 1
+    t.string "name"
+    t.string "description"
+    t.string "max_votes"
+    t.datetime "start_session"
+    t.datetime "end_session"
+    t.integer "minutes_session"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_polls_on_event_id"
+  end
+
   create_table "registers", force: :cascade do |t|
+    t.bigint "event_id", default: 1
     t.string "full_name"
     t.string "first_name"
     t.string "last_name"
@@ -52,6 +105,7 @@ ActiveRecord::Schema.define(version: 2018_10_30_060515) do
     t.string "info_5"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_registers_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|

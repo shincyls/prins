@@ -16,6 +16,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :polls do
+    collection do
+    end
+    member do
+    end
+  end
+
   resources :users
 
   resources :sessions

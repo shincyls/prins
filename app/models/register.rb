@@ -1,5 +1,7 @@
 class Register < ApplicationRecord
 
+    belongs_to :event
+
     validates :full_name, presence: {message: " must presense."}
     # validates :last_name, presence: {message: " must presense."}
     # validates :drawing_chance, presence: {message: " must be selected."}
@@ -11,7 +13,7 @@ class Register < ApplicationRecord
     @@running_number = PageContent.find_by(name: "running_number")
 
     include PgSearch
-    pg_search_scope :search_registers, 
+    pg_search_scope :search_registers,
     against: [:full_name, :drawing_chance, :ticket_number, :phone_number, :phone_number_2, :identity_number, :status],
     using: [:tsearch]
 

@@ -4,13 +4,13 @@ class RegistersController < ApplicationController
   before_action :set_register, only: [:show, :edit, :update, :destroy]
   before_action :require_login
 
+
   def index
     respond_to :html, :js
-    @registers = Register.all.order("created_at desc")
-    #@registers = @registers.paginate(:page => params[:page], :per_page => 20)
-    respond_to do |format|
-      format.html
-      format.csv { send_data @registers.to_csv, filename: "users-#{Date.today}.csv" }
+    if logged_in?
+      @registers = Register.all.order("created_at desc")
+    else
+      redirect_to login_path 
     end
   end
 
