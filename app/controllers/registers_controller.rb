@@ -25,11 +25,11 @@ class RegistersController < ApplicationController
     end
 
     if params[:check]
-      @registers = @registers.where(attendance: false)
+      @registers = @registers.where(checkin: false)
     end
 
     if params[:uncheck]
-      @registers = @registers.where(attendance: true)
+      @registers = @registers.where(checkin: true)
     end
 
     if params[:hide_sort]
@@ -51,18 +51,21 @@ class RegistersController < ApplicationController
   def attendance
     respond_to :html, :js
     @register = Register.find(params[:id])
-    if @register.attendance == true
-      @register.attendance = false
-    else
-      @register.attendance = true
-    end
+    @register.attendance == !@register.attendance
+    @register.save
+  end
+
+  def checkin
+    respond_to :html, :js
+    @register = Register.find(params[:id])
+    @register.attendance == !@register.attendance
     @register.save
   end
 
   def printa
     respond_to :html, :js
     @register = Register.find(params[:id])
-    if @register.ticket_number.nil?
+    if @register.ticket_number.nil? && @register.draw_allowed
       @register.convert_ticket_number
     end
     @register.save
@@ -154,6 +157,7 @@ class RegistersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def register_params
-      params.require(:register).permit(:full_name, :first_name, :last_name, :phone_number, :phone_number_2, :identity_number, :category, :drawing_chance, :info_1, :info_2, :info_3, :info_4, :info_5, :attendance)
+      params.require(:register).permit(:full_name, :first_name, :last_name, :phone_number, :phone_number_2, :identity_number, :category, :drawing_chance, :info_1, :info_2, :info_3, :info_4, :info_5, :attendance, :company, :department, :employee_id, :draw_allowed, :event_id)
     end
+
 end

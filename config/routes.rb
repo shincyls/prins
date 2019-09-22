@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get :printa
       get :printupdate
       post :attendance
+      post :checkin
     end
   end
 

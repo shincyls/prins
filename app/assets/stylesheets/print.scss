@@ -22,13 +22,13 @@
     width: 42cm;
     height: 29.7cm;  
   }
-  page[size="A5"] {
-    width: 14.6cm;
-    height: 22cm;
+  page[size="A5"][layout="portrait"] {
+    width: 14.8cm;
+    height: 21.0cm;
   }
   page[size="A5"][layout="landscape"] {
-    width: 21cm;
-    height: 14.6cm;
+    width: 21.0cm;
+    height: 14.8cm;
   }
   page[size="P1"] {
     width: 23cm;
@@ -36,13 +36,13 @@
   }
 
 
-  @media print {
+@media print {
 
     body, page {
       margin: 0;
       box-shadow: 0;
-      height: 100%;
-      width: 100%;
+      width: 14.8cm;
+      height: 21.0cm;
     }
 
     #preview-title {
@@ -58,60 +58,59 @@
       align-items: center;
       color: rgb(0, 51, 128);
     }
+  
+    #title-1 {
+      position: absolute;
+      font-size: 130%;
+      top: 38.5%;
+      right: 11.8%;
+      bottom: 53.9%;
+      left: 11%;
+    }
     
-  #title-1 {
+    #title-2 {
       position: absolute;
-      font-size:180%;
-      top: 10%;
-      right: 1.5%;
-      bottom: 80%;
-      left: 87.5%;
-  }
-  
-  #title-2 {
+      font-size: 130%;
+      top: 52%;
+      right: 11.8%;
+      bottom: 40.9%;
+      left: 11%;
+    }
+    
+    #title-3 {
       position: absolute;
-      font-size:160%;
-      top: 30%;
-      right: 10%;
-      bottom: 59.5%;
-      left: 25%;
-  }
-  
-  #title-3 {
+      font-size: 130%;
+      top: 65%;
+      right: 53%;
+      bottom: 28.2%;
+      left: 11%;
+    }
+    
+    #title-4 {
+      position: absolute;
+      font-size: 130%;
+      top: 65%;
+      right: 11.8%;
+      bottom: 28.2%;
+      left: 51%;
+    }
+    
+    #title-5 {
       position: absolute;
       font-size:130%;
-      top: 47.5%;
-      right: 33.5%;
-      bottom: 44.5%;
-      left: 18%;
-  }
-  
-  #title-4 {
+      top: 78%;
+      right: 53%;
+      bottom: 15.5%;
+      left: 9.5%;
+    }
+    
+    #title-6 {
       position: absolute;
-      font-size:300%;
-      color: black;
-      top: 47%;
-      right: 16%;
-      bottom: 44%;
-      left: 66.5%;
-  }
-  
-  #title-5 {
-      position: absolute;
-      font-size:90%;
-      top: 85%;
-      right: 10%;
-      bottom: 13%;
-      left: 40%;
-  }
-  
-  #title-6 {
-      position: absolute;
-      font-size:120%;
-      top: 90.8%;
-      right: 10%;
-      bottom: 2.8%;
-      left: 40%;
-  }
+      font-size: 130%;
+      top: 89%;
+      right: 3%;
+      bottom: 3%;
+      left: 62.5%;
+    }
   
 }

@@ -10,37 +10,33 @@ require 'smarter_csv'
 require 'csv'
 require 'open-uri'
 
-# options = {:col_sep => ';',
-#   row_sep: "\r",
-#   chunk_size: 100,
-#   convert_values_to_numeric: false,
-#   remove_empty_hashes: false
-# }
-  
-# SmarterCSV.process('app/assets/files/wlk.csv', options) do |chunk|
-#   chunk.each do |data_hash|
-#     Register.create!(data_hash)
-#   end
-# end
-
 PageContent.create!([
   {name: "running_number", value: 1}
 ])
 
 Event.create!([
-  {name: "Temporary Event", host_company: "Prins Solution Sdn Bhd"}
+  {name: "Mewah Group - Future Glow", host_company: "Prins Solution Sdn Bhd"}
 ])
 
 User.create!([
-  {username: "super1", first_name: "Super", last_name: "Admin1", email: "super1@prins.com", password: "@dmin!23", role: 0},
-  {username: "super2", first_name: "Super", last_name: "Admin2", email: "super2@prins.com", password: "@dmin!23", role: 0},
-  {username: "admin1", first_name: "Normal", last_name: "Admin1", email: "admin1@prins.com", password: "qwerasdf", role: 1},
-  {username: "admin2", first_name: "Normal", last_name: "Admin2", email: "admin2@prins.com", password: "qwerasdf", role: 1},
-  {username: "admin3", first_name: "Normal", last_name: "Admin3", email: "admin3@prins.com", password: "qwerasdf", role: 1},
-  {username: "admin4", first_name: "Normal", last_name: "Admin4", email: "admin4@prins.com", password: "qwerasdf", role: 1},
-  {username: "admin5", first_name: "Normal", last_name: "Admin5", email: "admin5@prins.com", password: "qwerasdf", role: 1},
-  {username: "admin6", first_name: "Normal", last_name: "Admin6", email: "admin6@prins.com", password: "qwerasdf", role: 1}
+  {username: "prinsvip", first_name: "Prins", last_name: "VIP", email: "vip@prins.com", password: "prinsadmin", role: 0},
+  {username: "prins1613", first_name: "Prins", last_name: "Admin", email: "admin@prins.com", password: "prins0000", role: 1}
 ])
+
+
+# CSV Loading File
+
+options = {:col_sep => ',',
+  chunk_size: 100,
+  convert_values_to_numeric: false,
+  remove_empty_hashes: false
+}
+  
+SmarterCSV.process('app/assets/files/mewah3.csv', options) do |chunk|
+  chunk.each do |data_hash|
+    Register.create!(data_hash)
+  end
+end
 
 
 

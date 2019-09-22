@@ -8,18 +8,19 @@
 <div class="modal-body p-0" id="modal-body">
     <div id="print">
         <div class="m-2">
-            <h6>Name:</h6>
-            <h4>
-            <% if @register.first_name.nil? %>
-                <%= @register.full_name %>
-            <% else %>
-                <%= @register.first_name %>
-            <% end %>
-            </h4>
-            <h6>Luck Draw:</h6>
-            <h4><%= @register.info_2 %></h4>
-            <h6>Table:</h6>
-            <h4><%= @register.info_5 %></h4>
+
+            <p><b>Company</b></p>
+            <p><%= @register.company %></p>
+            
+            <p><b>Name</b></p>
+            <p><%= @register.full_name %></p>
+
+            <p><b>Employee</b></p>
+            <p><%= @register.employee_id %></p>
+
+            <p><b>Ticket</b></p>
+            <p><%= @register.ticket_number %></p>
+
         </div>
     </div>
 </div>

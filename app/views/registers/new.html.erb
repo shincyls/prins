@@ -1,7 +1,11 @@
-<div class="row bg-secondary">
+<div class="row bg-secondary shadow p-4 m-4">
+    
     <div class="col-12 text-center">
         <h2 class="text-black mt-4">New Registration</h2>
     </div>
+
+    <%= render 'form', register: @register %>
+
 </div>
 
-<%= render 'form', register: @register %>
+
