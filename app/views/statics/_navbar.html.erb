@@ -20,7 +20,6 @@
               <li class="nav-item">
                 <%= link_to "Poll", polls_path, class: "nav-link"%>
               </li>
-
               <% if logged_in? %>
               <li class="nav-item">
                 <%= link_to "Register", registers_path, class: "nav-link"%>
@@ -29,12 +28,15 @@
                 <%= link_to "New", new_register_path, class: "nav-link"%>
               </li>
               <li class="nav-item">
+                <%= link_to "Events", "", class: "nav-link"%>
+              </li>
+              <li class="nav-item">
                 <%= link_to 'Sign Out', session_path('logout'), method: :delete, class: "nav-link" %>
               </li>
               <% else %>
               <li class="nav-item">
-                <%= link_to "Sign In", "", class: "nav-link"%>
-              </li>     
+                <%= link_to "Sign In", root_url, class: "nav-link"%>
+              </li>
               <% end %>
 
             </ul>

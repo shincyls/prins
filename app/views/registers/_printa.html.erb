@@ -7,20 +7,18 @@
 
 <div class="modal-body p-0" id="modal-body">
     <div id="print">
-        <div class="m-2">
-
-            <p><b>Company</b></p>
-            <p><%= @register.company %></p>
-            
-            <p><b>Name</b></p>
-            <p><%= @register.full_name %></p>
-
-            <p><b>Employee</b></p>
-            <p><%= @register.employee_id %></p>
-
-            <p><b>Ticket</b></p>
-            <p><%= @register.ticket_number %></p>
-
+        <div class="text-special m-2">
+            <p><span class="text-success"><b>Company</b></span> 
+            <%= @register.company %></p>
+            <p><span class="text-success"><b>Name</b></span> 
+            <%= @register.full_name %></p>
+            <p><span class="text-success"><b>EmployeeID</b></span> 
+            <%= @register.employee_id %></p>
+            <p><span class="text-success"><b>Ticket</b></span> 
+            <%= @register.ticket_number %></p>
+            <% if @register.event.evoting %>
+            <p><span class="text-success"><b>eVote Code</b></span> <%= @register.poll_voter.evote_code if @register.poll_voter.evote_code %></p>
+            <% end %>
         </div>
     </div>
 </div>

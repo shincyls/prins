@@ -7,7 +7,7 @@
           <h2 class="text-special text-black">Select Your Register Category</h2>
           
           <div class="row">
-            <div class="col-md-8 mx-auto">
+            <div class="col-md-12 mx-auto">
 
               <%= form_for :register, url: list_registers_path, method: "get", remote: true do |f| %>
 
@@ -20,14 +20,9 @@
 
               <div class="custom-control custom-checkbox d-inline">
                 <%= check_box_tag :check, true, false, id: "check-in"%>
-                <%= label_tag :check, "Hide Checked Customer" %>
+                <%= label_tag :check, "Hide Registered Customer" %>
                 <%= check_box_tag :uncheck, true, false, id: "not-check-in"%>
-                <%= label_tag :uncheck, "Hide Unchecked Customer" %>
-              </div>
-              <br>
-              <div class="custom-control custom-checkbox d-inline">
-                <%= check_box_tag :ticket_sort, true, false, id: "ticket_number"%>
-                <%= label_tag :ticket_sort, "Sort By Ticket Number" %>
+                <%= label_tag :uncheck, "Hide Unregister Customer" %>
                 <%= check_box_tag :hide_sort, true, false, id: "status_unprint"%>
                 <%= label_tag :hide_sort, "Show Unprint Only" %>
               </div>
@@ -45,17 +40,20 @@
 
       <div class="row justify-content-center">
         <div class="col-lg-12">
-          <p id="summary" class="text-black text-left">Checked-In <%= Register.where(checkin: true).count %> / Total <%= Register.where(attendance: true).count %></p>
+          <p id="summary" class="text-black text-special text-left">
+          CheckIn <%= Register.where(checkin: true).count %> / 
+          Registered <%= Register.where(attendance: true).count %> / 
+          All <%= Register.all.count %>
+          </p>
           <table id="data-table" class="table table-sm table-responsive-lg table-striped" style="font-size:0.7rem">
             <thead class="bg-primary text-dark">
               <tr>
-                <th>ID</th>
                 <th>Full Name</th>
                 <th>Company</th>
                 <th>Department</th>
-                <th>Employee ID</th>
-                <th>Attendance</th>
-                <th>Check-In</th>
+                <th>Emp ID</th>
+                <th>Registered</th>
+                <th>CheckIn</th>
                 <th>Lucky Draw</th>
                 <th>Show</th>
                 <% if current_user.super? %>

@@ -1,10 +1,11 @@
-class PollsController < ApplicationController
+class EventsController < ApplicationController
 
     def index
-        @poll_voter = PollVoter.new
+        @events = Event.all
     end
 
     def show
+        @event = Event.find(params[:id])
     end
 
     def new

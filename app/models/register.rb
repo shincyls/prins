@@ -1,6 +1,7 @@
 class Register < ApplicationRecord
 
     belongs_to :event
+    has_one :poll_voter
 
     validates :full_name, presence: {message: " must presense."}
     # validates :last_name, presence: {message: " must presense."}

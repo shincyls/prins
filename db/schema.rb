@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_09_15_030000) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer "minutes_session"
+    t.boolean "evoting", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,18 +64,20 @@ ActiveRecord::Schema.define(version: 2019_09_15_030000) do
   end
 
   create_table "poll_voters", force: :cascade do |t|
+    t.bigint "event_id"
     t.bigint "register_id"
-    t.string "voucher_code"
+    t.string "evote_code", limit: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_poll_voters_on_event_id"
     t.index ["register_id"], name: "index_poll_voters_on_register_id"
   end
 
   create_table "polls", force: :cascade do |t|
-    t.bigint "event_id", default: 1
+    t.bigint "event_id"
     t.string "name"
     t.string "description"
-    t.string "max_votes"
+    t.string "max_votes", default: "1"
     t.datetime "start_session"
     t.datetime "end_session"
     t.integer "minutes_session"

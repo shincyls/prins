@@ -1,18 +1,12 @@
 <% @registers.each do |r| %>
     <tr>
-        <td><%= r.id %></td>
         <td><%= r.full_name %></td>
         <td><%= r.company %></td>
         <td><%= r.department %></td>
         <td><%= r.employee_id %></td>
         <td>
-            <%= check_box_tag("attendance-id", r.id, r.attendance,
-                data: {
-                    remote: true,
-                    url: url_for(action: 'attendance', id: r.id),
-                    method: 'POST'
-                }) 
-            %>
+            <%= "YES" if r.attendance %>
+            <%= "NO" if !r.attendance %>
         </td>
         <td>
             <%= check_box_tag("checkin-id", r.id, r.checkin,

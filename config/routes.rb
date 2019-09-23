@@ -17,7 +17,29 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :events do
+    collection do
+    end
+    member do
+    end
+  end
+
   resources :polls do
+    collection do
+    end
+    member do
+    end
+  end
+
+  resources :poll_voters do
+    collection do
+      post :evote
+    end
+    member do
+    end
+  end
+
+  resources :polls_candidates do
     collection do
     end
     member do

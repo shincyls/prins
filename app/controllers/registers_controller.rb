@@ -51,29 +51,38 @@ class RegistersController < ApplicationController
   def attendance
     respond_to :html, :js
     @register = Register.find(params[:id])
-    @register.attendance == !@register.attendance
+    @register.attendance = !@register.attendance
     @register.save
   end
 
   def checkin
     respond_to :html, :js
     @register = Register.find(params[:id])
-    @register.attendance == !@register.attendance
+    @register.checkin = !@register.checkin
     @register.save
   end
 
   def printa
     respond_to :html, :js
     @register = Register.find(params[:id])
+
     if @register.ticket_number.nil? && @register.draw_allowed
       @register.convert_ticket_number
+      @register.save
+      # Create eVoting Code if the event is allowed
+      if @register.event.evoting
+        unless PollVoter.exists?(event_id: @register.event.id, register_id: @register.id)
+          @poll_voter = PollVoter.new(event_id: @register.event.id, register_id: @register.id)
+          @poll_voter.generate_code(6)
+          @poll_voter.save
+        end
+      end
     end
-    @register.save
   end
 
   def printupdate
     respond_to :html, :js
-    @register = Register.find(params[:id])    
+    @register = Register.find(params[:id])
     @register.status = 1
     @register.save
   end
@@ -83,7 +92,7 @@ class RegistersController < ApplicationController
     @registers.each do |r|
       r.status = 0
       r.ticket_number = nil
-      r.attendance = false
+      r.checkin = false
       r.save
     end
 

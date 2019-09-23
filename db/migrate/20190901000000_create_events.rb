@@ -8,6 +8,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
         t.datetime :start_date
         t.datetime :end_date
         t.integer :minutes_session
+        t.boolean :evoting, default: false
         t.timestamps
       end
     end

@@ -15,12 +15,25 @@ PageContent.create!([
 ])
 
 Event.create!([
-  {name: "Mewah Group - Future Glow", host_company: "Prins Solution Sdn Bhd"}
+  {name: "Mewah Group - Future Glow", host_company: "Mewah Group", organizer_company: "Prins Solution Sdn Bhd", evoting: true}
 ])
 
 User.create!([
   {username: "prinsvip", first_name: "Prins", last_name: "VIP", email: "vip@prins.com", password: "prinsadmin", role: 0},
   {username: "prins1613", first_name: "Prins", last_name: "Admin", email: "admin@prins.com", password: "prins0000", role: 1}
+])
+
+Poll.create!([
+  {event_id: 1, name: "Talent Show Voting", description: "Vote the Best Show Now!", minutes_session: 30},
+])
+
+PollCandidate.create!([
+  {poll_id: 1, subject: "Talent Show 1", description: "Zulaika"},
+  {poll_id: 1, subject: "Talent Show 2", description: "Riena Del Baile"},
+  {poll_id: 1, subject: "Talent Show 3", description: "2HRA"},
+  {poll_id: 1, subject: "Talent Show 4", description: "Phoenix Busker"},
+  {poll_id: 1, subject: "Talent Show 5", description: "3887"},
+  {poll_id: 1, subject: "Talent Show 6", description: "Sweetie Belle"}
 ])
 
 
