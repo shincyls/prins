@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'statics#index'
 
-  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :registers do
     collection do
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     collection do
     end
     member do
+      post :vote
     end
   end
 

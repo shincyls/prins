@@ -1,6 +1,41 @@
-<p>Hello, show all event here (admin and guest)</p>
+<div class="text-center text-special text-shadow m-4">
+    <h2>It's Polling Session!</h2>
+    <h3>Please vote the candidate of your heart</h3>
 
-<p><%= @event.name %></p>
-<p><%= @event.location %></p>
-<p><%= @event.host_company %></p>
-<p><%= @event.organizer_company %></p>
+    <div>
+        <h3><%= @event.name %></h3>
+    </div>
+    
+</div>
+
+<% @event.polls.each do |p| %>
+<section class="section">
+      <div class="container">
+        <div class="card card-profile shadow">
+          <div class="px-4">
+
+            <div class="text-center text-special mt-5">
+              <h3><%= p.name %></h3>
+              <h4><%= p.description %></h4>
+              <div class="h6 mt-4">Max Vote: <%= p.max_votes %></div>
+            </div>
+
+            <div class="mt-5 py-5 border-top text-center">
+              <div class="row justify-content-center">
+                <div id='event-poll-candidate-<%=p.id%>' class="col-lg-9 poll-selection">
+                    <% @poll = p %>
+                    <%= render partial: 'events/candidates', local: @poll %>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+ </section>
+ <% end %>
+
+
+
+
+

@@ -19,8 +19,8 @@ Event.create!([
 ])
 
 User.create!([
-  {username: "prinsvip", first_name: "Prins", last_name: "VIP", email: "vip@prins.com", password: "prinsadmin", role: 0},
-  {username: "prins1613", first_name: "Prins", last_name: "Admin", email: "admin@prins.com", password: "prins0000", role: 1}
+  {username: "prinsvip", first_name: "Prins", last_name: "VIP", email: "vip@prins.com", password: "prins1613", role: 0},
+  {username: "prinsadmin", first_name: "Prins", last_name: "Admin", email: "admin@prins.com", password: "prins0000", role: 1}
 ])
 
 Poll.create!([

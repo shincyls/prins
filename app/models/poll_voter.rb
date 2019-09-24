@@ -13,4 +13,7 @@ class PollVoter < ApplicationRecord
         end while PollVoter.exists?(evote_code: self.evote_code)
     end
 
+    def voted_candidate
+    end
+
 end

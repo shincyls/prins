@@ -1,0 +1,5 @@
+$('#flash-message').html("<%= j (render 'statics/message') %>");
+
+<% unless @poll_bank.nil? %>
+$('#event-poll-candidate-<%=@poll_bank.poll_id%>').html("<%= j (render 'events/candidates') %>");
+<% end %>

@@ -1,6 +1,5 @@
 $('#data-table').dataTable().fnDestroy();
 $('#search').html("<%= j (render 'list') %>");
-loadjs(0);
 $("#summary").html('CheckIn <%= @registers.where(checkin: true).count %> / Registered <%= @registers.where(attendance: true).count %> / All <%= Register.all.count %>')
 
 <% case @data when "0" %>
@@ -24,3 +23,5 @@ $("#summary").html('CheckIn <%= @registers.where(checkin: true).count %> / Regis
     $("#btn-walkin").attr('class', 'btn btn-outline-primary');
     $("#btn-rsvp").attr('class', 'btn btn-outline-primary');
 <% end %>
+
+loadjs(0);

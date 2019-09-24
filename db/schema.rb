@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2019_09_15_030000) do
     t.bigint "poll_id"
     t.bigint "poll_voter_id"
     t.bigint "poll_candidate_id"
+    t.boolean "active", default: false
     t.index ["poll_candidate_id"], name: "index_poll_banks_on_poll_candidate_id"
     t.index ["poll_id"], name: "index_poll_banks_on_poll_id"
     t.index ["poll_voter_id"], name: "index_poll_banks_on_poll_voter_id"
@@ -77,7 +78,7 @@ ActiveRecord::Schema.define(version: 2019_09_15_030000) do
     t.bigint "event_id"
     t.string "name"
     t.string "description"
-    t.string "max_votes", default: "1"
+    t.integer "max_votes", default: 1
     t.datetime "start_session"
     t.datetime "end_session"
     t.integer "minutes_session"

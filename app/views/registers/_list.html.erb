@@ -14,7 +14,7 @@
                     remote: true,
                     url: url_for(action: 'checkin', id: r.id),
                     method: 'POST'
-                }) 
+                })
             %>
         </td>
         <td class="<%= r.status %>" id="status-<%= r.id %>"><%= r.ticket_number %></td>
