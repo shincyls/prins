@@ -15,7 +15,7 @@ PageContent.create!([
 ])
 
 Event.create!([
-  {name: "Mewah Group - Future Glow", host_company: "Mewah Group", organizer_company: "Prins Solution Sdn Bhd", evoting: true}
+  {name: "Mewah Group - Future Glow 2019", host_company: "Mewah Group", organizer_company: "Prins Solution Sdn Bhd", evoting: true}
 ])
 
 User.create!([
@@ -28,38 +28,38 @@ Poll.create!([
 ])
 
 PollCandidate.create!([
-  {poll_id: 1, subject: "Talent Show 1", description: "Zulaika"},
-  {poll_id: 1, subject: "Talent Show 2", description: "Riena Del Baile"},
-  {poll_id: 1, subject: "Talent Show 3", description: "2HRA"},
-  {poll_id: 1, subject: "Talent Show 4", description: "Phoenix Busker"},
-  {poll_id: 1, subject: "Talent Show 5", description: "3887"},
-  {poll_id: 1, subject: "Talent Show 6", description: "Sweetie Belle"}
+  {poll_id: 1, subject: "Talent Show 1", description: "Zulaika,
+  {poll_id: 1, subject: "Talent Show 2", description: "Riena Del Baile,
+  {poll_id: 1, subject: "Talent Show 3", description: "2HRA,
+  {poll_id: 1, subject: "Talent Show 4", description: "Phoenix Busker,
+  {poll_id: 1, subject: "Talent Show 5", description: "3887,
+  {poll_id: 1, subject: "Talent Show 6", description: "Sweetie Belle
 ])
 
 PollVoter.create!([
-  {event_id: 1, evote_code: "pr11az"},
-  {event_id: 1, evote_code: "pr12br"},
-  {event_id: 1, evote_code: "pr47zk"},
-  {event_id: 1, evote_code: "pr30sr"},
-  {event_id: 1, evote_code: "pr48gf"},
-  {event_id: 1, evote_code: "pr47rt"},
-  {event_id: 1, evote_code: "pr62gu"},
-  {event_id: 1, evote_code: "pr24re"},
-  {event_id: 1, evote_code: "pr26es"},
-  {event_id: 1, evote_code: "pr83ah"},
-  {event_id: 1, evote_code: "pr88sf"},
-  {event_id: 1, evote_code: "pr09kj"},
-  {event_id: 1, evote_code: "pr34ap"},
-  {event_id: 1, evote_code: "pr25sf"},
-  {event_id: 1, evote_code: "pr16kr"},
-  {event_id: 1, evote_code: "pr27th"},
-  {event_id: 1, evote_code: "pr71iv"},
-  {event_id: 1, evote_code: "pr38ye"},
-  {event_id: 1, evote_code: "pr35kl"},
-  {event_id: 1, evote_code: "pr05pg"},
-  {event_id: 1, evote_code: "pr92jb"},
-  {event_id: 1, evote_code: "pr36cf"},
-  {event_id: 1, evote_code: "pr48cf"}
+  pr11az,
+  pr12br,
+  pr47zk,
+  pr30sr,
+  pr48gf,
+  pr47rt,
+  pr62gu,
+  pr24re,
+  pr26es,
+  pr83ah,
+  pr88sf,
+  pr09kj,
+  pr34ap,
+  pr25sf,
+  pr16kr,
+  pr27th,
+  pr71iv,
+  pr38ye,
+  pr35kl,
+  pr05pg,
+  pr92jb,
+  pr36cf,
+  pr48cf
 ])
 
 
@@ -76,6 +76,9 @@ SmarterCSV.process('app/assets/files/mewah3.csv', options) do |chunk|
     Register.create!(data_hash)
   end
 end
+
+
+
 
 
 

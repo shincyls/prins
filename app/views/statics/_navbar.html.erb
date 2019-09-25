@@ -17,29 +17,29 @@
             </div>
             <ul class="navbar-nav ml-lg-auto">
 
-              <li class="nav-item text-danger">
-                <%= link_to "Evote Sign-In", polls_path, class: "nav-link"%>
-              </li>
-              <% unless session[:evote_id].nil? %>
+              <% if session[:evote_id].nil? %>
+                <li class="nav-item text-danger">
+                  <%= link_to "Evote Sign-In", polls_path, class: "nav-link"%>
+                </li>
+              <% else %>
                 <li class="nav-item">
                   <%= link_to 'Evote Sign-Out', poll_voter_path('logout'), method: :delete, class: "nav-link" %>
                 </li>
               <% end %>
-              <% if logged_in? %>
-              <li class="nav-item">
-                <%= link_to "Register", registers_path, class: "nav-link"%>
-              </li>
-              <li class="nav-item">
-                <%= link_to "New", new_register_path, class: "nav-link"%>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Events", events_path, class: "nav-link"%>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'Sign Out', session_path('logout'), method: :delete, class: "nav-link" %>
-              </li>
-              <% else %>
 
+              <% if logged_in? %>
+                <li class="nav-item">
+                  <%= link_to "Register", registers_path, class: "nav-link"%>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "New", new_register_path, class: "nav-link"%>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Events", events_path, class: "nav-link"%>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'Sign Out', session_path('logout'), method: :delete, class: "nav-link" %>
+                </li>
               <% end %>
 
             </ul>

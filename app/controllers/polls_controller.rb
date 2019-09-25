@@ -57,9 +57,9 @@ class PollsController < ApplicationController
         @poll.allow_votes = !@poll.allow_votes
         @poll.save
         if @poll.allow_votes == true
-            flash.now[:success] = "Poll is On, voters are now Able to vote."
+            flash.now[:success] = "Poll is Opened, voters are now Able to vote."
         else @poll.allow_votes == false
-            flash.now[:danger] = "Poll is Off, voters are now Unable to vote"
+            flash.now[:danger] = "Poll is Closed, voters are now Unable to vote"
         end
     end
 
@@ -69,9 +69,9 @@ class PollsController < ApplicationController
         @poll.poll_results = !@poll.poll_results
         @poll.save
         if @poll.poll_results == true
-            flash.now[:success] = "Result is On, voters are now ABLE to view result."
+            flash.now[:success] = "Result is Opened, voters are now Able to view result."
         else @poll.poll_results == false
-            flash.now[:danger] = "Result is Off, voters are now UNABLE to view result."
+            flash.now[:danger] = "Result is Closed, voters are now Unable to view result."
         end
     end
 
