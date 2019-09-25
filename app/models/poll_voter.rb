@@ -2,7 +2,7 @@ class PollVoter < ApplicationRecord
 
     has_many :poll_banks
     belongs_to :event
-    belongs_to :register
+    belongs_to :register, optional: true
     validates :evote_code, uniqueness: {message: " must be unique."}
 
     def generate_code(length)

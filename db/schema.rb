@@ -92,11 +92,6 @@ ActiveRecord::Schema.define(version: 2019_09_15_030000) do
   create_table "registers", force: :cascade do |t|
     t.bigint "event_id", default: 1
     t.string "full_name"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "phone_number"
-    t.string "phone_number_2"
-    t.string "identity_number"
     t.float "purchase_amount", default: 0.0
     t.integer "drawing_chance", default: 0
     t.string "ticket_number", limit: 3
@@ -108,11 +103,6 @@ ActiveRecord::Schema.define(version: 2019_09_15_030000) do
     t.boolean "draw_allowed", default: true
     t.string "company"
     t.string "department"
-    t.string "info_1"
-    t.string "info_2"
-    t.string "info_3"
-    t.string "info_4"
-    t.string "info_5"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_registers_on_event_id"

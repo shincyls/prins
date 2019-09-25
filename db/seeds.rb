@@ -36,6 +36,32 @@ PollCandidate.create!([
   {poll_id: 1, subject: "Talent Show 6", description: "Sweetie Belle"}
 ])
 
+PollVoter.create!([
+  {event_id: 1, evote_code: "pr11az"},
+  {event_id: 1, evote_code: "pr12br"},
+  {event_id: 1, evote_code: "pr47zk"},
+  {event_id: 1, evote_code: "pr30sr"},
+  {event_id: 1, evote_code: "pr48gf"},
+  {event_id: 1, evote_code: "pr47rt"},
+  {event_id: 1, evote_code: "pr62gu"},
+  {event_id: 1, evote_code: "pr24re"},
+  {event_id: 1, evote_code: "pr26es"},
+  {event_id: 1, evote_code: "pr83ah"},
+  {event_id: 1, evote_code: "pr88sf"},
+  {event_id: 1, evote_code: "pr09kj"},
+  {event_id: 1, evote_code: "pr34ap"},
+  {event_id: 1, evote_code: "pr25sf"},
+  {event_id: 1, evote_code: "pr16kr"},
+  {event_id: 1, evote_code: "pr27th"},
+  {event_id: 1, evote_code: "pr71iv"},
+  {event_id: 1, evote_code: "pr38ye"},
+  {event_id: 1, evote_code: "pr35kl"},
+  {event_id: 1, evote_code: "pr05pg"},
+  {event_id: 1, evote_code: "pr92jb"},
+  {event_id: 1, evote_code: "pr36cf"},
+  {event_id: 1, evote_code: "pr48cf"}
+])
+
 
 # CSV Loading File
 
