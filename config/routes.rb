@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     collection do
     end
     member do
+      post :toggle
+      get :details
     end
   end
 
@@ -29,6 +31,9 @@ Rails.application.routes.draw do
     end
     member do
       post :vote
+      post :toggle
+      post :result
+      post :refresh
     end
   end
 

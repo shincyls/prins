@@ -1,0 +1,17 @@
+<% @poll.poll_candidates.each do |pc| %>
+
+    <div class="progress-wrapper">
+        <div class="progress-info">
+            <div class="progress-label">
+            <span class="display-3"><%= pc.full_desc %></span>
+            </div>
+            <div class="progress-percentage">
+            <span><%= pc.voted_count %> / <%= pc.voted_perc %>% </span>
+            </div>
+        </div>
+        <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="<%= pc.voted_perc %>%" aria-valuemin="0%" aria-valuemax="100%" style="width:<%= pc.voted_perc %>%;"></div>
+        </div>
+    </div>
+
+<% end %>

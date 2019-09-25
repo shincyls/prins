@@ -1,0 +1,52 @@
+<table id="data-table" class="table table-sm table-responsive-lg table-striped" style="font-size:0.7rem">
+    <thead class="bg-primary text-dark">
+        <tr>
+            <th>Full Name</th>
+            <th>Company</th>
+            <th>Department</th>
+            <th>Emp ID</th>
+            <th>Registered</th>
+            <th>CheckIn</th>
+            <th>Lucky Draw</th>
+            <th>Show</th>
+            <% if current_user.super? %>
+            <th>Edit</th>
+            <th>Delete</th>
+            <% end %>
+        </tr>
+    </thead>
+
+    <tbody id="search">
+        <% @registers.each do |r| %>
+        <tr>
+            <td><%= r.full_name %></td>
+            <td><%= r.company %></td>
+            <td><%= r.department %></td>
+            <td><%= r.employee_id %></td>
+            <td>
+                <%= "YES" if r.attendance %>
+                <%= "NO" if !r.attendance %>
+            </td>
+            <td>
+                <%= check_box_tag("checkin-id", r.id, r.checkin,
+                    data: {
+                        remote: true,
+                        url: url_for(action: 'checkin', id: r.id),
+                        method: 'POST'
+                    })
+                %>
+            </td>
+            <td class="<%= r.status %>" id="status-<%= r.id %>"><%= r.ticket_number %></td>
+            <td><span class="bg-success rounded p-1 m-1"><%= link_to "Print", printa_register_path(r), class: "small text-white", remote: true %></span></td>
+            <% if current_user.super? %>
+            <td><span class="bg-info rounded p-1 m-1"><%= link_to 'Edit', edit_register_path(r), class: "small text-white", target: "_blank" %></span></td>
+            <td><span class="bg-danger rounded p-1 m-1"><%= link_to 'Delete', r, method: :delete, class: "small text-white", data: { confirm: 'Press ok to confirm you submission.' } %></span></td>
+            <% end %>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<script>
+loadjs('#data-table', 0);
+</script>

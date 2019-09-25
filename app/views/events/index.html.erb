@@ -1,1 +1,42 @@
-<p>Hello, show all event here (admin only)</p>
+<div class="container bg-glass p-2 mt-4 mb-4 rounded shadow">
+    <div id="events-list-all">
+        <table id="events-table" class="table table-sm table-responsive-lg" style="font-size:0.8rem">
+            <thead class="text-dark">
+                <tr>
+                    <th>Name</th>
+                    <th></th>
+                    <th>Organization</th>
+                    <th>Organizer</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>E-Voting</th>
+                </tr>
+            </thead>
+
+            <tbody class="text-black">
+                <% @events.each do |e| %>
+                <tr>
+                    <td class="align-middle">
+                        <%= link_to e.name, "/events/#{e.id}", method: "get", target: "_blank" %>
+                    </td>
+                    <td class="align-middle"><%= button_to "Config", details_event_path(e.id), class: "btn-sm btn-secondary", method: "get", remote: true, target: "_blank" %></td>
+                    <td class="align-middle"><%= e.host_company%></td>
+                    <td class="align-middle"><%= e.organizer_company%></td>
+                    <td class="align-middle"><%= e.start_date%></td>
+                    <td class="align-middle"><%= e.end_date%></td>
+                    <td class="align-middle"><%= "Yes" if e.evoting%></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+
+    <div id="event-details">
+        <div id="event-polls">
+        </div>
+    </div>
+
+</div>
+

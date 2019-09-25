@@ -18,9 +18,9 @@ class PollVotersController < ApplicationController
         end
     end
 
-    def exit 
+    def destroy
         session[:evote_id] = nil
-        redirect_to polls_url, flash: { success: 'Exit eVote Session Successfully'}
+        redirect_to polls_url, flash: { success: 'Exit E-Vote Session Successfully'}
     end
     
 end

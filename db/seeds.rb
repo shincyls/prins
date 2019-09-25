@@ -24,7 +24,7 @@ User.create!([
 ])
 
 Poll.create!([
-  {event_id: 1, name: "Talent Show Voting", description: "Vote the Best Show Now!", minutes_session: 30},
+  {event_id: 1, name: "Talent Show Voting", description: "Which one of the following is the best show?", minutes_session: 30},
 ])
 
 PollCandidate.create!([

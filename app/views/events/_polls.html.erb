@@ -1,0 +1,54 @@
+
+    <div>
+        <table id="events-table" class="table table-sm table-responsive-lg" style="font-size:0.8rem">
+            <thead class="text-dark">
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Options</th>
+                    <th>Votes/Pax</th>
+                    <th>Open?</th>
+                    <th>Result?</th>
+                </tr>
+            </thead>
+
+            <tbody class="text-black">
+                <tr>
+                    <% count = 1 %>
+                    <% @event.polls.each do |p| %> 
+                    <td><%= count %></td>
+                    <td><%= p.name%></td>
+                    <td><%= p.description%></td>
+                    <td><%= p.poll_candidates.count %></td>
+                    <td><%= p.max_votes%></td>
+                    <td>
+                        <label class="custom-toggle">
+                        <%= check_box_tag("poll-allow-#{p.id}", p.id, p.allow_votes,
+                            data: {
+                                remote: true,
+                                url: url_for(action: 'toggle', controller: "polls", id: p.id),
+                                method: 'POST'
+                            })
+                        %>
+                        <span class="custom-toggle-slider rounded-circle"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <label class="custom-toggle">
+                        <%= check_box_tag("poll-result-#{p.id}", p.id, p.poll_results,
+                            data: {
+                                remote: true,
+                                url: url_for(action: 'result', controller: "polls", id: p.id),
+                                method: 'POST'
+                            })
+                        %>
+                        <span class="custom-toggle-slider rounded-circle"></span>
+                        </label>
+                    </td>
+                    <% count += 1 %>
+                    <% end %>
+                </tr>
+            </tbody>
+        </table>
+    </div>

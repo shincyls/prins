@@ -30,7 +30,7 @@
               <% end %>
 
               <% if current_user.super? %>
-                <%= link_to 'Reset Registers', reset_registers_path, method: "post", class: "text-black" %>
+                <%= link_to 'Reset Registers', reset_registers_path, method: "post", data: { confirm: 'Warning! Please Confirm This Action.' }, class: "text-black" %>
               <% end %>
 
             </div>
@@ -45,28 +45,10 @@
           Registered <%= Register.where(attendance: true).count %> / 
           All <%= Register.all.count %>
           </p>
-          <table id="data-table" class="table table-sm table-responsive-lg table-striped" style="font-size:0.7rem">
-            <thead class="bg-primary text-dark">
-              <tr>
-                <th>Full Name</th>
-                <th>Company</th>
-                <th>Department</th>
-                <th>Emp ID</th>
-                <th>Registered</th>
-                <th>CheckIn</th>
-                <th>Lucky Draw</th>
-                <th>Show</th>
-                <% if current_user.super? %>
-                <th>Edit</th>
-                <th>Delete</th>
-                <% end %>
-              </tr>
-            </thead>
 
-            <tbody id="search">
-            </tbody>
+          <div id="registers-table">
+          </div>
 
-          </table>
           <br>
         </div>
       </div>
@@ -74,17 +56,16 @@
   </div>
 </main>
 
-<script>
 
-loadjs(0);
+<script>
 
 $('.btn').on('click', function() {
   $('#summary').html('<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i><span class="small"> loading data...</span>');
 });
 
-function loadjs(sortCol) {
+function loadjs(table, sortCol) {
   $(document).ready(function() {
-    $('#data-table').DataTable({
+    $(table).DataTable({
       "order": [[ sortCol, "asc" ]],
       "search": {
         "caseInsensitive": true

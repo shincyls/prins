@@ -4,6 +4,7 @@
     <title>Prins Solution</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= favicon_link_tag 'brand/favicon.png' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -27,6 +28,7 @@
   </head>
 
   <body>
+  
     <div id="flash-message"><%= render partial: 'statics/message' %></div>
     <%= render partial: 'statics/navbar' %>
 
@@ -38,6 +40,7 @@
     <% unless controller_name == 'registers' and action_name == 'show' %>
     <%= render partial: 'statics/footer' %>
     <% end %>
+
   </body>
 
 </html>

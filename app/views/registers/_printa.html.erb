@@ -1,5 +1,5 @@
 <div class="modal-header bg-info" id="modal-header">
-    <span class='text-white display-6'>Check Information</span>
+    <span class='text-special text-white display-6'>Check Information</span>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
     </button>
@@ -7,17 +7,38 @@
 
 <div class="modal-body p-0" id="modal-body">
     <div id="print">
-        <div class="text-special m-2">
-            <p><span class="text-success"><b>Company</b></span> 
-            <%= @register.company %></p>
-            <p><span class="text-success"><b>Name</b></span> 
-            <%= @register.full_name %></p>
-            <p><span class="text-success"><b>EmployeeID</b></span> 
-            <%= @register.employee_id %></p>
-            <p><span class="text-success"><b>Ticket</b></span> 
-            <%= @register.ticket_number %></p>
+        <div class="row text-special m-2">
+            <div class="col-2">
+                <span class="text-success"><b>Company</b></span>
+            </div>
+            <div class="col-10">
+                <%= @register.company %>
+            </div>
+            <div class="col-2">
+                <span class="text-success"><b>Name</b></span> 
+            </div>
+            <div class="col-10">
+                <%= @register.full_name %>
+            </div>
+            <div class="col-2">
+                <span class="text-success"><b>EmployeeID</b></span> 
+            </div>
+            <div class="col-10">
+                <%= @register.employee_id %>
+            </div>
+            <div class="col-2">
+                <span class="text-success"><b>Ticket</b></span> 
+            </div>
+            <div class="col-10">
+                <%= @register.ticket_number %>
+            </div>
             <% if @register.event.evoting %>
-            <p><span class="text-success"><b>eVote Code</b></span> <%= @register.poll_voter.evote_code if @register.poll_voter.evote_code %></p>
+            <div class="col-2">
+                <span class="text-success"><b>eVote Code</b></span> 
+            </div>
+            <div class="col-10">
+                <%= @register.poll_voter.evote_code if @register.poll_voter.evote_code %>
+            </div>
             <% end %>
         </div>
     </div>

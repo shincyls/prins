@@ -1,13 +1,13 @@
       <nav class="navbar navbar-expand-lg bg-none text-special">
         <div class="container">
           <%= link_to image_tag('brand/prins.png'), root_path, class: "navbar-brand mr-lg-5" %>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <button class="navbar-toggler bg-glass" type="button" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="text-primary"><i class="ni ni-align-center"></i></span>
           </button>
           <div class="collapse navbar-collapse" id="navbar-primary">
             <div class="navbar-collapse-header">
               <div class="row">
-                <div class="col-6 collapse-close">
+                <div class="col-sm-6 collapse-close">
                   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
@@ -18,8 +18,13 @@
             <ul class="navbar-nav ml-lg-auto">
 
               <li class="nav-item text-danger">
-                <%= link_to "Poll", polls_path, class: "nav-link"%>
+                <%= link_to "Evote Sign-In", polls_path, class: "nav-link"%>
               </li>
+              <% unless session[:evote_id].nil? %>
+                <li class="nav-item">
+                  <%= link_to 'Evote Sign-Out', poll_voter_path('logout'), method: :delete, class: "nav-link" %>
+                </li>
+              <% end %>
               <% if logged_in? %>
               <li class="nav-item">
                 <%= link_to "Register", registers_path, class: "nav-link"%>
@@ -28,15 +33,13 @@
                 <%= link_to "New", new_register_path, class: "nav-link"%>
               </li>
               <li class="nav-item">
-                <%= link_to "Events", "", class: "nav-link"%>
+                <%= link_to "Events", events_path, class: "nav-link"%>
               </li>
               <li class="nav-item">
                 <%= link_to 'Sign Out', session_path('logout'), method: :delete, class: "nav-link" %>
               </li>
               <% else %>
-              <li class="nav-item">
-                <%= link_to "Sign In", root_url, class: "nav-link"%>
-              </li>
+
               <% end %>
 
             </ul>

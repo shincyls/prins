@@ -12,10 +12,19 @@ class EventsController < ApplicationController
         @voter = PollVoter.find_by(id: session[:evote_id])
     end
 
-    def new
+    def toggle
+        respond_to :html, :js
+        @event = Poll.find(params[:id])
+        @event.evoting = !@poll.evoting
+        @event.save
     end
 
-    def login
+    def details
+        respond_to :html, :js
+        @event = Event.find(params[:id])
+    end
+
+    def new
     end
 
     def create
@@ -30,7 +39,7 @@ class EventsController < ApplicationController
     private
     
     def validate_evote
-      unless PollVoter.find_by(id: session[:evote_id])
+      unless PollVoter.find_by(id: session[:evote_id]) || current_user.super?
         redirect_to polls_path
         flash.now[:warning] = "Please use evote code to access."
       end
