@@ -3,9 +3,7 @@
         <tr>
             <th>Full Name</th>
             <th>Company</th>
-            <th>Department</th>
             <th>Emp ID</th>
-            <th>Registered</th>
             <th>CheckIn</th>
             <th>Lucky Draw</th>
             <th>Show</th>
@@ -21,12 +19,7 @@
         <tr>
             <td><%= r.full_name %></td>
             <td><%= r.company %></td>
-            <td><%= r.department %></td>
             <td><%= r.employee_id %></td>
-            <td>
-                <%= "YES" if r.attendance %>
-                <%= "NO" if !r.attendance %>
-            </td>
             <td>
                 <%= check_box_tag("checkin-id", r.id, r.checkin,
                     data: {
