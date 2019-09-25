@@ -5,7 +5,7 @@ class PollCandidatesController < ApplicationController
 
     private
 
-    def
+    def require_super
         unless current_user.super?
             flash.now[:warning] = "Super User required to peform this action."
         end

@@ -2,6 +2,7 @@ class RegistersController < ApplicationController
   include ApplicationHelper
   
   before_action :set_register, only: [:show, :edit, :update, :destroy]
+  before_action :require_super, only: [:destroy]
   before_action :require_login
 
 
@@ -167,6 +168,12 @@ class RegistersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def register_params
       params.require(:register).permit(:full_name, :first_name, :last_name, :phone_number, :phone_number_2, :identity_number, :category, :drawing_chance, :info_1, :info_2, :info_3, :info_4, :info_5, :attendance, :company, :department, :employee_id, :draw_allowed, :event_id)
+    end
+
+    def require_super
+      unless current_user.super?
+          flash.now[:warning] = "Super User required to peform this action."
+      end
     end
 
 end

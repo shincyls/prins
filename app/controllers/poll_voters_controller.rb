@@ -22,5 +22,13 @@ class PollVotersController < ApplicationController
         session[:evote_id] = nil
         redirect_to polls_url, flash: { success: 'Exit E-Vote Session Successfully'}
     end
+
+    private
+
+    def require_super
+        unless current_user.super?
+            flash.now[:warning] = "Super User required to peform this action."
+        end
+    end
     
 end
