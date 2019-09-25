@@ -1,5 +1,7 @@
 class PollsController < ApplicationController
 
+    before_action :require_super, only: [:toggle, :new, :create, :update, :destroy]
+
     def index
         @poll_voter = PollVoter.new
     end
@@ -91,6 +93,12 @@ class PollsController < ApplicationController
     end
 
     private
+
+    def require_super
+        unless current_user.super?
+            flash.now[:warning] = "Super User required to peform this action."
+        end
+    end
 
     def exceed_vote_limit
         (PollBank.where(poll_id: params[:id], poll_voter_id: session[:evote_id], active: true).count + 1) <= (@poll.max_votes)

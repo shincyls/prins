@@ -4,7 +4,9 @@
             <thead class="text-dark">
                 <tr>
                     <th>Name</th>
+                    <% if current_user.super? %>
                     <th></th>
+                    <% end %>
                     <th>Organization</th>
                     <th>Organizer</th>
                     <th>Start Date</th>
@@ -19,7 +21,9 @@
                     <td class="align-middle">
                         <%= link_to e.name, "/events/#{e.id}", method: "get", target: "_blank" %>
                     </td>
+                    <% if current_user.super? %>
                     <td class="align-middle"><%= button_to "Config", details_event_path(e.id), class: "btn-sm btn-secondary", method: "get", remote: true, target: "_blank" %></td>
+                    <% end %>
                     <td class="align-middle"><%= e.host_company%></td>
                     <td class="align-middle"><%= e.organizer_company%></td>
                     <td class="align-middle"><%= e.start_date%></td>
