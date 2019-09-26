@@ -15,7 +15,7 @@ class Register < ApplicationRecord
 
     include PgSearch
     pg_search_scope :search_registers,
-    against: [:full_name, :drawing_chance, :ticket_number, :phone_number, :phone_number_2, :identity_number, :status],
+    against: [:full_name, :ticket_number, :phone_number, :phone_number_2, :identity_number, :status],
     using: [:tsearch]
 
     def convert_ticket_number
@@ -25,22 +25,22 @@ class Register < ApplicationRecord
         @@running_number.save
     end
 
-    def convert_category
-        self.category = self.holder.to_i
-    end
+    # def convert_category
+    #     self.category = self.holder.to_i
+    # end
 
-    def convert_full_name
-        @convert = self.first_name + " " + self.last_name
-    end
+    # def convert_full_name
+    #     @convert = self.first_name + " " + self.last_name
+    # end
 
-    def convert_draw_chance
-        if self.purchase >= 20000
-            self.drawing_chance = 5
-        elsif self.purchase >= 10000
-            self.drawing_chance = 3
-        else
-            self.drawing_chance = 1
-        end
-    end
+    # def convert_draw_chance
+    #     if self.purchase >= 20000
+    #         self.drawing_chance = 5
+    #     elsif self.purchase >= 10000
+    #         self.drawing_chance = 3
+    #     else
+    #         self.drawing_chance = 1
+    #     end
+    # end
 
 end
