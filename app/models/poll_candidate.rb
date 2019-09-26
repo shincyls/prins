@@ -20,10 +20,10 @@ class PollCandidate < ApplicationRecord
 
     def voted_perc
         if self.poll.poll_banks.exists?
-            perc = (100*self.voted_count/self.poll.poll_banks.where(active: true).count).round(1)
+            perc = ((100*self.voted_count/self.poll.poll_banks.where(active: true).count).round(1)).to_s + "%"
             return perc
         else
-            return 0.0
+            return "0%"
         end
     end
 

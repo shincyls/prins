@@ -171,7 +171,7 @@ class RegistersController < ApplicationController
     end
 
     def require_super
-      unless current_user.super?
+      unless logged_in? & current_user.super?
           flash.now[:warning] = "Super User required to peform this action."
       end
     end

@@ -57,9 +57,9 @@ class PollsController < ApplicationController
         @poll.allow_votes = !@poll.allow_votes
         @poll.save
         if @poll.allow_votes == true
-            flash.now[:success] = "Poll is Opened, voters are now Able to vote."
+            flash.now[:success] = "Poll is Opening, voters now are Able to vote."
         else @poll.allow_votes == false
-            flash.now[:danger] = "Poll is Closed, voters are now Unable to vote"
+            flash.now[:danger] = "Poll is Closing, voters now are Unable to vote"
         end
     end
 
@@ -69,9 +69,9 @@ class PollsController < ApplicationController
         @poll.poll_results = !@poll.poll_results
         @poll.save
         if @poll.poll_results == true
-            flash.now[:success] = "Result is Opened, voters are now Able to view result."
+            flash.now[:success] = "Result is Opening, voters now are Able to view result."
         else @poll.poll_results == false
-            flash.now[:danger] = "Result is Closed, voters are now Unable to view result."
+            flash.now[:danger] = "Result is Closing, voters now are Unable to view result."
         end
     end
 
@@ -95,7 +95,7 @@ class PollsController < ApplicationController
     private
 
     def require_super
-        unless current_user.super?
+        unless logged_in? & urrent_user.super?
             flash.now[:warning] = "Super User required to peform this action."
         end
     end
