@@ -1,6 +1,6 @@
 class PollsController < ApplicationController
 
-    before_action :require_super, only: [:toggle, :new, :create, :update, :destroy]
+    before_action :require_super, only: [:toggle, :result, :new, :create, :update, :destroy]
 
     def index
         if session[:evote_id].nil?
