@@ -3,7 +3,12 @@ class PollsController < ApplicationController
     before_action :require_super, only: [:toggle, :new, :create, :update, :destroy]
 
     def index
-        @poll_voter = PollVoter.new
+        if session[:evote_id].nil?
+            @poll_voter = PollVoter.new
+        else
+            @poll_voter = PollVoter.find(session[:evote_id])
+            redirect_to event_path(@poll_voter.event.id), poll_voter: @poll_voter
+        end
     end
 
     def show
