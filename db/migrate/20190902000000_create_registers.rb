@@ -3,8 +3,8 @@ class CreateRegisters < ActiveRecord::Migration[5.2]
     create_table :registers do |t|
       t.references :event, default: 1
       t.string :full_name
-      t.float :purchase_amount, default: 0
-      t.integer :drawing_chance, default: 0
+      # t.float :purchase_amount, default: 0
+      # t.integer :drawing_chance, default: 0
       t.string :ticket_number, limit: 3
       t.integer :status, default: 0
       t.integer :category, default: 0
