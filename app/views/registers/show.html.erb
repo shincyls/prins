@@ -1,21 +1,18 @@
 <div id="preview-title" class="row justify-content-center">
-    <h3 class="mt-4">Print Preview</h3>
+    <h3 class="text-primary text-special mt-4">Print Preview</h3>
 </div>
 
-
-<page class="print-container" size="A5" layout="portrait" id="print-section">
-    <div id="row-1" class="row" style="width:100%;height:25%;">
-        <div class="border text d-flex justify-content-center text-special" id="title-1"><%= @register.company %></div>
+<div class="row justify-content-center">
+    <div class="print-container border mt-4 mb-4 p-0">
+        <%= image_tag('brand/mewah.jpeg', class: "event-template-bg")%>
+        <div class="event-template-text text-special">
+            <div class="border" id="title-1"><%= @register.company %></div>
+            <div class="border" id="title-2"><%= @register.full_name %></div>
+            <div class="border" id="title-3"><%= @register.employee_id %></div>
+            <div class="border" id="title-4"><%= @register.ticket_number %></div>
+            <div class="border" id="title-5"><%= @register.poll_voter.evote_code if @register.poll_voter.evote_code %></div>
+            <div class="border" id="title-6"><%= @register.employee_id %></div>
+            <div class="border" id="title-7"><%= @register.ticket_number %></div>
+        </div>
     </div>
-
-    <div id="row-2" class="row" style="width:100%;height:40%;">
-        <div class="border text d-flex justify-content-center text-special" id="title-2"><%= @register.full_name %></div>
-        <div class="border text d-flex justify-content-center text-special" id="title-3"><%= @register.employee_id %></div>
-        <div class="border text d-flex justify-content-center text-special" id="title-4"><%= @register.ticket_number %></div>
-    </div>
-
-    <div id="row-3" class="row mt-2" style="width:100%;height:35%;">
-        <div class="border text d-flex justify-content-center text-special" id="title-5"><%= @register.poll_voter.evote_code if @register.poll_voter.evote_code %></div>
-        <div class="border text d-flex justify-content-center text-special" id="title-6"><%= @register.ticket_number %></div>
-    </div>
-</page>
+</div>

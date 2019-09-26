@@ -11,7 +11,7 @@
 
               <%= form_for :register, url: list_registers_path, method: "get", remote: true do |f| %>
 
-              <div class="form-group ml-4 mr-4">
+              <div class="form-group m-2">
                 <%= button_tag "All", value: 3, type: "submit", id: "btn-all", class: "btn btn-outline-primary" %>
                 <%= button_tag "Registered", value: 0, type: "submit", id: "btn-walkin", class: "btn btn-outline-primary" %>
                 <%= button_tag "Reserved", value: 1, type: "submit", id: "btn-reg", class: "btn btn-outline-primary" %>
@@ -19,12 +19,14 @@
               </div>
 
               <div class="custom-control custom-checkbox d-inline">
-                <%= check_box_tag :check, true, false, id: "check-in"%>
+              <ul>
+                <%= check_box_tag :check, true, false, id: "check-in", class: "m-1"%>
                 <%= label_tag :check, "Hide Registered Customer" %>
-                <%= check_box_tag :uncheck, true, false, id: "not-check-in"%>
+                <%= check_box_tag :uncheck, true, false, id: "not-check-in", class: "m-1"%>
                 <%= label_tag :uncheck, "Hide Unregister Customer" %>
-                <%= check_box_tag :hide_sort, true, false, id: "status_unprint"%>
+                <%= check_box_tag :hide_sort, true, false, id: "status_unprint", class: "m-1"%>
                 <%= label_tag :hide_sort, "Show Unprint Only" %>
+              </ul>
               </div>
 
               <% end %>
@@ -79,18 +81,7 @@ function loadjs(table, sortCol) {
                 orthogonal: 'sort'
             }
         }        
-      ],
-      columnDefs: [{
-        targets:[5],
-        render: function(data, type, row, meta){
-            if(type === 'sort'){
-              var $input = $(data).find('input[type="checkbox"]').addBack();
-              data = ($input.prop('checked')) ? "True" : "False";
-            }
-            return data; 
-        }
-      }]
-
+      ]
     });
   });
 };

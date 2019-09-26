@@ -1,48 +1,52 @@
-
-  page {
-    background: white;
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 0.5cm;
-    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
-  }
-  page[size="A4"] {  
-    width: 21cm;
-    height: 29.7cm;
-  }
-  page[size="A4"][layout="landscape"] {
-    width: 29.7cm;
-    height: 21cm;  
-  }
-  page[size="A3"] {
-    width: 29.7cm;
-    height: 42cm;
-  }
-  page[size="A3"][layout="landscape"] {
-    width: 42cm;
-    height: 29.7cm;  
-  }
-  page[size="A5"][layout="portrait"] {
-    width: 14.8cm;
-    height: 21.0cm;
-  }
-  page[size="A5"][layout="landscape"] {
-    width: 21.0cm;
-    height: 14.8cm;
-  }
-  page[size="P1"] {
-    width: 23cm;
-    height: 17cm;
-  }
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+page[size="A4"] {  
+  width: 21cm;
+  height: 29.7cm;
+}
+page[size="A4"][layout="landscape"] {
+  width: 29.7cm;
+  height: 21cm;  
+}
+page[size="A3"] {
+  width: 29.7cm;
+  height: 42cm;
+}
+page[size="A3"][layout="landscape"] {
+  width: 42cm;
+  height: 29.7cm;  
+}
+page[size="A5"][layout="portrait"] {
+  width: 14.8cm;
+  height: 21.0cm;
+}
+page[size="A5"][layout="landscape"] {
+  width: 21.0cm;
+  height: 14.8cm;
+}
+page[size="P1"] {
+  width: 23cm;
+  height: 17cm;
+}
 
 
 @media print {
+    
+    body{
+      background-image: none;
+      padding: 0;
+      margin: 0;
+    }
 
     body, page {
       margin: 0;
+      padding: 0;
       box-shadow: 0;
-      width: 14.8cm;
-      height: 21.0cm;
     }
 
     #preview-title {
@@ -53,64 +57,18 @@
       border: none !important;
     }
 
-    .text {
-      font-family:Lato;
-      align-items: center;
-      color: rgb(0, 51, 128);
+    .print-container {
+      position: static !important;
+      border: none !important;
     }
-  
-    #title-1 {
-      position: absolute;
-      font-size: 130%;
-      top: 38.5%;
-      right: 11.8%;
-      bottom: 53.9%;
-      left: 11%;
+
+    .event-template-bg {
+      visibility: hidden;
     }
-    
-    #title-2 {
-      position: absolute;
-      font-size: 130%;
-      top: 52%;
-      right: 11.8%;
-      bottom: 40.9%;
-      left: 11%;
+
+    footer {
+      display: none;
     }
-    
-    #title-3 {
-      position: absolute;
-      font-size: 130%;
-      top: 65%;
-      right: 53%;
-      bottom: 28.2%;
-      left: 11%;
-    }
-    
-    #title-4 {
-      position: absolute;
-      font-size: 130%;
-      top: 65%;
-      right: 11.8%;
-      bottom: 28.2%;
-      left: 51%;
-    }
-    
-    #title-5 {
-      position: absolute;
-      font-size:130%;
-      top: 78%;
-      right: 53%;
-      bottom: 15.5%;
-      left: 9.5%;
-    }
-    
-    #title-6 {
-      position: absolute;
-      font-size: 130%;
-      top: 89%;
-      right: 3%;
-      bottom: 3%;
-      left: 62.5%;
-    }
+
   
 }
