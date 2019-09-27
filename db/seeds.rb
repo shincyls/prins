@@ -60,7 +60,6 @@ PollVoter.create!([
   {event_id: 1, evote_code: "pr92jb"},
   {event_id: 1, evote_code: "pr36cf"},
   {event_id: 1, evote_code: "pr48cf"},
-  
   {event_id: 1, evote_code: "prv33i"},
   {event_id: 1, evote_code: "pr4yjp"},
   {event_id: 1, evote_code: "pr23ih"},
@@ -141,7 +140,6 @@ PollVoter.create!([
   {event_id: 1, evote_code: "prws0q"},
   {event_id: 1, evote_code: "pr5m8c"},
   {event_id: 1, evote_code: "prll53"}
-
 ])
 
 # CSV Loading File

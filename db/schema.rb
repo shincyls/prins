@@ -92,8 +92,6 @@ ActiveRecord::Schema.define(version: 2019_09_15_030000) do
   create_table "registers", force: :cascade do |t|
     t.bigint "event_id", default: 1
     t.string "full_name"
-    t.float "purchase_amount", default: 0.0
-    t.integer "drawing_chance", default: 0
     t.string "ticket_number", limit: 3
     t.integer "status", default: 0
     t.integer "category", default: 0

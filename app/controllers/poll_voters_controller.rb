@@ -8,14 +8,15 @@ class PollVotersController < ApplicationController
 
     def evote
         respond_to :html, :js
-        @code = params[:poll_voter][:evote_code].downcase!
+        @code = params[:poll_voter][:evote_code]
+        @code.downcase!
         if PollVoter.exists?(evote_code: @code)
             @poll_voter = PollVoter.find_by(evote_code: @code)
             session[:evote_id] = @poll_voter.id
             redirect_to event_path(@poll_voter.event.id), poll_voter: @poll_voter
-            flash.now[:success] = "You have successfully logged in to E-Vote Session."
+            flash.now[:success] = "You have successfully logged in to E-Vote Session. #{@code}"
         else
-            flash.now[:warning] = "E-Vote Code is not found."
+            flash.now[:warning] = "E-Vote Code is not found. a #{@code}"
         end
     end
 
