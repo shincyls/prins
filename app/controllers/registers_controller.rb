@@ -58,13 +58,13 @@ class RegistersController < ApplicationController
     if @register.ticket_number.nil? && @register.draw_allowed
       @register.convert_ticket_number
       @register.save
-      # Create eVoting Code if the event is allowed
-      if @register.event.evoting
-        unless PollVoter.exists?(event_id: @register.event.id, register_id: @register.id)
-          @poll_voter = PollVoter.new(event_id: @register.event.id, register_id: @register.id)
-          @poll_voter.generate_code(6)
-          @poll_voter.save
-        end
+    end
+    # Create eVoting Code if the event is allowed
+    if @register.event.evoting
+      unless PollVoter.exists?(event_id: @register.event.id, register_id: @register.id)
+        @poll_voter = PollVoter.new(event_id: @register.event.id, register_id: @register.id)
+        @poll_voter.generate_code(6)
+        @poll_voter.save
       end
     end
   end
