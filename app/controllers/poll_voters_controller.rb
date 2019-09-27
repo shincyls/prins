@@ -8,8 +8,9 @@ class PollVotersController < ApplicationController
 
     def evote
         respond_to :html, :js
-        if PollVoter.exists?(evote_code: params[:poll_voter][:evote_code])
-            @poll_voter = PollVoter.find_by(evote_code: params[:poll_voter][:evote_code])
+        @code = params[:poll_voter][:evote_code].downcase!
+        if PollVoter.exists?(evote_code: @code)
+            @poll_voter = PollVoter.find_by(evote_code: @code)
             session[:evote_id] = @poll_voter.id
             redirect_to event_path(@poll_voter.event.id), poll_voter: @poll_voter
             flash.now[:success] = "You have successfully logged in to E-Vote Session."

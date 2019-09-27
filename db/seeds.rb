@@ -62,7 +62,6 @@ PollVoter.create!([
   {event_id: 1, evote_code: "pr48c"}
 ])
 
-
 # CSV Loading File
 
 options = {:col_sep => ',',
