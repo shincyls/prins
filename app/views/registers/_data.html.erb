@@ -34,7 +34,7 @@
                     })
                 %>
             </td>
-            <td class="<%= r.status %>" id="status-<%= r.id %>"><%= r.ticket_number %></td>
+            <td><%= r.ticket_number %></td>
             <td><span class="bg-success rounded p-1 m-1"><%= link_to "Print", printa_register_path(r), class: "small text-white", remote: true %></span></td>
             <% if current_user.super? %>
             <td><span class="bg-info rounded p-1 m-1"><%= link_to 'Edit', edit_register_path(r), class: "small text-white", target: "_blank" %></span></td>
