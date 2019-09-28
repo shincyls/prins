@@ -25,6 +25,19 @@ class Register < ApplicationRecord
         @@running_number.save
     end
 
+
+    def register_code
+        @code = self.employee_id.downcase!
+        if self.employee_id.length < 9
+            @pv = PollVoter.new(event_id: 1, evote_code: @code)
+            @pv.save
+        else
+            print "Not Valid"
+        end
+    end
+
+    # Register.where.not(status: 1).each {|r| r.register_code}
+
     # def convert_category
     #     self.category = self.holder.to_i
     # end

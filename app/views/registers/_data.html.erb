@@ -4,6 +4,7 @@
             <th class="align-middle">Full Name</th>
             <th class="align-middle">Company</th>
             <th class="align-middle">Emp ID</th>
+            <th class="align-middle">Attendance</th>
             <th class="align-middle">CheckIn</th>
             <th class="align-middle">Lucky Draw</th>
             <th class="align-middle">Show</th>
@@ -20,6 +21,10 @@
             <td><%= r.full_name %></td>
             <td><%= r.company %></td>
             <td><%= r.employee_id %></td>
+            <td>
+                <%= "YES" if r.attendance %>
+                <%= "NO" if !r.attendance %>
+            </td>
             <td>
                 <%= check_box_tag("checkin-id", r.id, r.checkin,
                     data: {
