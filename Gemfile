@@ -32,7 +32,7 @@ gem 'oauth2', '~> 1.4'
 gem 'pg_search', '~> 2.1', '>= 2.1.2'
 
 # Use ActiveStorage variant
-gem 'carrierwave', '~> 1.2', '>= 1.2.3'
+gem 'carrierwave', '~> 1.3'
 # gem 'mini_magick', '~> 4.8'
 
 # Styling Libraries
